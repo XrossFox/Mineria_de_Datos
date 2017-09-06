@@ -14,6 +14,13 @@ horseData$temp_of_extremities <- factor(horseData$temp_of_extremities,
                         levels=c("cold","cold","war,","normal"),
                         labels=c(4,3,2,1))
 
+horseData$peripheral_pulse <- factor(horseData$peripheral_pulse,
+                                        levels=c("normal", 
+                                                 "increased",
+                                                 "reduced", 
+                                                 "absent" ),
+                                        labels=c(1,2,3,4))
+
 horseData$mucous_membrane <- factor(horseData$mucous_membrane,
                                         levels=c("normal_pink" ,
                                                  "bright_pink" ,
@@ -82,7 +89,7 @@ horseData$abdomo_appearance <- factor(horseData$abdomo_appearance,
                             labels=c(1,2,3))
 
 horseData$outcome <- factor(horseData$outcome,
-                                      levels=c("lived ",
+                                      levels=c("lived",
                                                "died",
                                                "euthanized"),
                                       labels=c(1,2,3))
@@ -92,7 +99,28 @@ horseData$surgical_lesion <- factor(horseData$surgical_lesion,
                             labels=c(1,0))
 
 #Matriz de datos con columnas importantes (para correlacion)
-horseMatrix <- data.frame()
+horseMatrix <- data.frame(as.numeric(horseData$surgery),
+                          as.numeric(horseData$age),
+                          as.numeric(horseData$rectal_temp),
+                          as.numeric(horseData$pulse),
+                          as.numeric(horseData$respiratory_rate),
+                          as.numeric(horseData$temp_of_extremities),
+                          as.numeric(horseData$peripheral_pulse),
+                          as.numeric(horseData$mucous_membrane),
+                          as.numeric(horseData$capillary_refill_time),
+                          as.numeric(horseData$abdominal_distention),
+                          as.numeric(horseData$nasogastric_tube),
+                          as.numeric(horseData$nasogastric_reflux),
+                          as.numeric(horseData$nasogastric_reflux_ph),
+                          as.numeric(horseData$rectal_exam_feces),
+                          as.numeric(horseData$abdomen),
+                          as.numeric(horseData$packed_cell_volume),
+                          as.numeric(horseData$total_protein),
+                          as.numeric(horseData$abdomo_appearance),
+                          as.numeric(horseData$abdomo_protein),
+                          as.numeric(horseData$outcome),
+                          as.numeric(horseData$surgical_lesion)
+                          )
 
 
 #Con este comando se hace la correlacion del dataset

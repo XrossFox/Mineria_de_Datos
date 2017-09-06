@@ -62,6 +62,19 @@ indice
 ##(Histogramas. Interpretacion)
 ##(Cuartiles. Interpretacion)
 ##(Correlacion. Interpretacion)
+Como el conjunto de datos, contiene dos atributos que no son numericas, primero necesitamos quitar dichas columnas:
+```{r Correlacion}
+#Con este comando se carga el data set
+cpuData <- read.csv("machine.csv")
+
+#Con los siguientes dos comandos, se eliminan las columnas no numericas, y se guardan en una matriz
+cpuDataMat <- cpuData[-1]
+cpuDataMat <- cpuDataMat[-1]
+
+#Con este comando se hace la correlacion del dataset
+cor(cpuDataMat)
+```
+
 ##(Scatterplot. Interpretacion)
 
-#Conlution
+#Conclution

@@ -122,12 +122,32 @@ horseMatrix <- data.frame(as.numeric(horseData$surgery),
                           as.numeric(horseData$surgical_lesion)
                           )
 
-
 #Con este comando se hace la correlacion del dataset
 cor(horseMatrix,use="pairwise")
 
+#Determinar valores perdidos de cada columna
+sapply(horseMatrix, function(x) sum(is.na(x)))
+
+#Eliminamos columnas que tienen demasiados datos perdidos
+#Matriz de datos con columnas importantes (para correlacion)
+horseMatrix <- data.frame(as.numeric(horseData$surgery),
+                          as.numeric(horseData$age),
+                          as.numeric(horseData$rectal_temp),
+                          as.numeric(horseData$pulse),
+                          as.numeric(horseData$respiratory_rate),
+                          as.numeric(horseData$peripheral_pulse),
+                          as.numeric(horseData$mucous_membrane),
+                          as.numeric(horseData$capillary_refill_time),
+                          as.numeric(horseData$packed_cell_volume),
+                          as.numeric(horseData$total_protein),
+                          as.numeric(horseData$outcome),
+                          as.numeric(horseData$surgical_lesion)
+)
+#Con este comando se hace la correlacion del dataset
+cor(horseMatrix,use="complete.obs")
+
 #Grafica de scatter `para la correlacion de PRP y MMAX`
-plot(cpuDataMat$PRP,cpuDataMat$MMAX)
+plot(horseMatrix$outcome,horseMatrix$as.numeric.horseData.pulse,use="complete.obs")
 
 #Grafica de scatter `para la correlacion de PRP y MMAX`
 plot(cpuDataMat$ERP,cpuDataMat$MMAX)

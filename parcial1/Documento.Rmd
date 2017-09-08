@@ -7,7 +7,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
-
+```{r, echo=FALSE}
+cpuData <- read.csv("machine.csv")
+```
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
@@ -29,7 +31,7 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
-#Spam en lo comentarios de Youtube
+#Rendimiento de CPUs
 ##(Aqui van los nombres del equipo)
 ##Mineria de Datos
 ##(Nombre del profesor)
@@ -44,38 +46,73 @@ bla
 
 
 #Contenido
-indice
-indice
-indice
 
-##Introduction
-(Los data sets son sobre diferentes comentario en youtube. algunos son Spam y otros no)
 
-##Problematic
-(Diferenciar spam de comentarios reales)
+##Introduccion
+Este conjunto de datos es una recopilacion de varios procesadores y sus caracteristicas.
+
+##Problematica
+El proposito es encontrar una estimacion del rendimiento de dichos procesadores y compararlo con los datos publicados por los fabricantes del hardware, ese fue el proposito con el que estos datos fueron recopilados.
 
 #Exploratory Analysis
 
 ##(Descripcion de Variables, columnas)
+Nombre de Fabricante (vendor name).
+Nombre de Modelo.
+MYCT: Es el ciclo maquina en nanosegundos.
+MMIN: Minimo de memoria en kilobytes.
+MMAX: Maximo de memoria en kilobytes.
+CACH: Tamaño del cache en kilobytes.
+CHMIN: Canales minimos en unidades.
+CHMAX: Canales maximos en unidades.
+PRP: Rendimiento relativo publicado
+ERP: Rendimiento relativo estimado.
+
 ##(Resumen estadistico simple)
+```{r}
+summary(cpuData)
+```
+
 ##(Boxplots e interprestacion)
 ##(Sezgo de los datos. Interpretacion)
 ##(Histogramas. Interpretacion)
 ##(Cuartiles. Interpretacion)
 ##(Correlacion. Interpretacion)
 Como el conjunto de datos, contiene dos atributos que no son numericas, primero necesitamos quitar dichas columnas:
+
+
 ```{r Correlacion}
-#Con este comando se carga el data set
-cpuData <- read.csv("machine.csv")
 
-#Con los siguientes dos comandos, se eliminan las columnas no numericas, y se guardan en una matriz
-cpuDataMat <- cpuData[-1]
-cpuDataMat <- cpuDataMat[-1]
-
-#Con este comando se hace la correlacion del dataset
-cor(cpuDataMat)
+#Quitando las columnas no numericas
+cpuMatrix <- cpuData[-1]
+cpuMatrix <- cpuMatrix[-1]
 ```
 
-##(Scatterplot. Interpretacion)
+Una vez eliminadas las columnas no numericas, podemos utililzar la funcion cor() para encontrar los coficientes de correlacion de la matriz.
+```{r}
+#Correlacion de la matriz
+#Podemos ver, que segun sus coeficientes de correlacion, cuando los ciclos con base al tiempo son mas pequeños, todas las otras variables tienden a aumentar un poco. 
+cor(cpuMatrix)
+
+```
+La Correlacion es una funcion estadistica que permite encontrar la dependencia linear de dos variables aleatorias X y Y. El coeficiente de correlacion r puede tener un rango de entre -1 y 1, siendo uno 1, una dependencia perfecta, y menos uno, la anti-correlacion, y 0 siendo nula correlacion. Conforme el coeficiente aumenta, significa que Y incrementa cuando X lo hace, lo inverso tambien es verdad, conforme va disminuyendo, el incremento es menor, y si se veulve negativo, este se convierte en decremento.
+
+##Scatterplot
+Las graficas de dispersion sirven para mostrar la dependencia entre dos variable X y Y. Pueden ser una manera de visualizar la correlacion de dos variables.
+```{r}
+
+#Grafica de scatter `para la correlacion de PRP y MMAX`
+plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Rendimiento relativo publicado",ylab = "Memoria maxima en KB")
+#Podemos apreciar, cuando la memoria maxima aumenta, tambien el rendimiento relativo publicado incrementa
+
+#Grafica de scatter `para la correlacion de ERP y MMAX`
+plot(cpuMatrix$ERP,cpuMatrix$MMAX,xlab = "Rendimiento relativo estimado",ylab = "Memoria Maxima en KB")
+#La estimacion de rendimiento tambien aumenta linearmente con la memoria en KB
+
+#Grafica de scatter `para la correlacion de PRP y ERP`
+plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Rendimiento relativo estimado",ylab="Rendimiento relativo publicado")
+#La relacion entre Lo estimado y lo publicado. Lo optimo deberia ser que la correlacion fuera perfecta, significaria que los datos publicados son congruentes con los datos estimados.
+```
+
 
 #Conclution

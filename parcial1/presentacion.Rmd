@@ -7,15 +7,28 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Cpu Performance Analysis
 
 
+Instructor :
 
-## Slide with Bullets
+Pasillas Diáz José Ramon.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Authors:
+
+- David del Real.
+- Kevin Salmon.
+- Esteban Garcia.
+- Irwin Trujillo.
+
+## Problem description
+
+When we buy a processor, we usually rely on the processing speed that the manufacturer indicated as valid.
+
+But, is there any way to know which vendors are loyal to their customers and actually deliver them an expected processing speed?
+
+We used a dataset thath help to answer the question.
+ 
 
 ## Slide with R Output
 

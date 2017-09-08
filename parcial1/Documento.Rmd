@@ -1,5 +1,5 @@
 ---
-title: "Parcial 1"
+title: "Rendimiento de CPUs"
 output: html_document
 ---
 
@@ -10,31 +10,18 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, echo=FALSE}
 cpuData <- read.csv("machine.csv")
 ```
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+###Mineria de Datos
+###Profesor :
+####Pasillas Diáz José Ramon
 
 
-#Rendimiento de CPUs
-##(Aqui van los nombres del equipo)
-##Mineria de Datos
-##(Nombre del profesor)
+###Autores :
+#### David del real
+#### Kevin Salmon
+#### Esteban Garcia
+#### Irwin Trujillo
+
+
 
 
 #Abstract
@@ -103,6 +90,8 @@ Las graficas de dispersion sirven para mostrar la dependencia entre dos variable
 
 #Grafica de scatter `para la correlacion de PRP y MMAX`
 plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Rendimiento relativo publicado",ylab = "Memoria maxima en KB")
+
+
 #Podemos apreciar, cuando la memoria maxima aumenta, tambien el rendimiento relativo publicado incrementa
 
 #Grafica de scatter `para la correlacion de ERP y MMAX`
@@ -115,4 +104,6 @@ plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Rendimiento relativo estimado",ylab="Re
 ```
 
 
-#Conclution
+#Conclusión
+
+

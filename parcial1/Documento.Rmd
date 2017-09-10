@@ -12,7 +12,7 @@ cpuData <- read.csv("machine.csv")
 ```
 ##Instructor :
 
-- Pasillas Diáz José Ramon
+- Pasillas Di?z Jos? Ramon
 
 
 ##Authors :
@@ -57,63 +57,8 @@ summary(cpuData)
 
 ##Boxplots
 ##Bias
+
 ##Histograms
-##Cuartiles
-##Correlation
-
-Correlation is a statistical function that allows to find the linear dependence of two random variables X and Y.
-
-The correlation coefficient r can have a range between -1 and 1, being one (1), a perfect dependency, minus one (-1) the anti-correlation, and 0 being null correlation.
-
-As the coefficient increases, it means that Y increases when X does, the reverse is true as it decreases, the increase is smaller, and if it becomes negative, it becomes a decrease.
-
-Since the dataset contains two non-numeric attributes, we first need to remove those columns:
-
-
-```{r Correlacion}
-
-#Removing non-numeric columns
-cpuMatrix <- cpuData[-1]
-cpuMatrix <- cpuMatrix[-1]
-```
-
-Once the non-numeric columns have been removed, we can use the cor () function to find the correlation coefficients of the matrix.
-```{r}
-# Matrix mapping
-
-# We can see that according to their correlation coefficients, when time-based cycles are smaller, all other variables tend to increase slightly. 
-cor(cpuMatrix)
-
-```
-
-
-##Scatterplot
-The dispersion graphs serve to show the dependence between two variables X and Y. They can be a way to visualize the correlation of two variables.
-```{r}
-
-#Scatterplot for the correlation of PRP and MMAX.`
-plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Relative performance published",ylab = "Maximum memory in KB")
-
-
-#We can appreciate, when the maximum memory increases, also the published relative performance increases
-
-#Scatterplot for the correlation of ERP and MMAX.
-plot(cpuMatrix$ERP,cpuMatrix$MMAX,xlab = "Estimated relative performance",ylab = "Maximum memory in KB")
-
-#The performance estimate also increases linearly with memory in KB
-
-#Scatterplot for the correlation of PRP and ERP.
-plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="Relative performance published")
-
-#The relationship between the estimated and the published.
-#The optimum should be that the correlation is perfect, it would mean that the published data are congruent with the estimated data.
-```
-
-##Histogram
-
-<<<<<<< Updated upstream
-#Conclusion
-=======
 ###We can se in the histogram that the distribution favors to the left wich makes sense. this must be the comercial cpu's and to the rigth we see cpu's that where developed for more specialiced purposes
 ```{r}
 
@@ -192,7 +137,61 @@ and the rest fall between them being split by 45 kb/nanoseconds
 quantile(sortedCpuData$ERP)
 boxplot(sortedCpuData$MMIN, horizontal = TRUE)
 ```
-#Conclusión
->>>>>>> Stashed changes
+
+
+
+##Correlation
+
+Correlation is a statistical function that allows to find the linear dependence of two random variables X and Y.
+
+The correlation coefficient r can have a range between -1 and 1, being one (1), a perfect dependency, minus one (-1) the anti-correlation, and 0 being null correlation.
+
+As the coefficient increases, it means that Y increases when X does, the reverse is true as it decreases, the increase is smaller, and if it becomes negative, it becomes a decrease.
+
+Since the dataset contains two non-numeric attributes, we first need to remove those columns:
+
+
+```{r Correlacion}
+
+#Removing non-numeric columns
+cpuMatrix <- cpuData[-1]
+cpuMatrix <- cpuMatrix[-1]
+```
+
+Once the non-numeric columns have been removed, we can use the cor () function to find the correlation coefficients of the matrix.
+```{r}
+# Matrix mapping
+
+# We can see that according to their correlation coefficients, when time-based cycles are smaller, all other variables tend to increase slightly. 
+cor(cpuMatrix)
+
+```
+
+
+##Scatterplot
+The dispersion graphs serve to show the dependence between two variables X and Y. They can be a way to visualize the correlation of two variables.
+```{r}
+
+#Scatterplot for the correlation of PRP and MMAX.`
+plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Relative performance published",ylab = "Maximum memory in KB")
+
+
+#We can appreciate, when the maximum memory increases, also the published relative performance increases
+
+#Scatterplot for the correlation of ERP and MMAX.
+plot(cpuMatrix$ERP,cpuMatrix$MMAX,xlab = "Estimated relative performance",ylab = "Maximum memory in KB")
+
+#The performance estimate also increases linearly with memory in KB
+
+#Scatterplot for the correlation of PRP and ERP.
+plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="Relative performance published")
+
+#The relationship between the estimated and the published.
+#The optimum should be that the correlation is perfect, it would mean that the published data are congruent with the estimated data.
+```
+
+#Conclusion
+=======
+
 
 

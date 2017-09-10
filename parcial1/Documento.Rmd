@@ -1,5 +1,5 @@
 ---
-title: "Rendimiento de CPUs"
+title: "Cpu Performance Analysis"
 output: html_document
 ---
 
@@ -10,79 +10,82 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, echo=FALSE}
 cpuData <- read.csv("machine.csv")
 ```
-###Mineria de Datos
-###Profesor :
-####Pasillas Diáz José Ramon
+###Instructor :
+
+- Pasillas Diáz José Ramon
 
 
-###Autores :
-#### David del real
-#### Kevin Salmon
-#### Esteban Garcia
-#### Irwin Trujillo
+###Authors :
+
+- David del real
+- Kevin Salmon
+- Esteban Garcia
+- Irwin Trujillo
+
+##Index
+
+-  Introduction.
+-  Exploratory Analysis.
+-  Conclucion.
 
 
+##1.- Introduction.
 
+This dataset is a compilation of several processors and their characteristics.
 
-#Abstract
-bla
-bla
-bla
-bla
-bla
-
-
-#Contenido
-
-
-##Introduccion
-Este conjunto de datos es una recopilacion de varios procesadores y sus caracteristicas.
-
-##Problematica
-El proposito es encontrar una estimacion del rendimiento de dichos procesadores y compararlo con los datos publicados por los fabricantes del hardware, ese fue el proposito con el que estos datos fueron recopilados.
+The purpose is to find an estimate of the performance of these processors and compare it with the data published by the hardware manufacturers.
 
 #Exploratory Analysis
 
-##(Descripcion de Variables, columnas)
-Nombre de Fabricante (vendor name).
-Nombre de Modelo.
-MYCT: Es el ciclo maquina en nanosegundos.
-MMIN: Minimo de memoria en kilobytes.
-MMAX: Maximo de memoria en kilobytes.
-CACH: TamaÃ±o del cache en kilobytes.
-CHMIN: Canales minimos en unidades.
-CHMAX: Canales maximos en unidades.
-PRP: Rendimiento relativo publicado
-ERP: Rendimiento relativo estimado.
+##Descripcion de Variables
 
-##(Resumen estadistico simple)
+- Vendor Name (No need for an explanation here).
+- Model.
+- MYCT: It's the machine cycle in nanoseconds.
+- MMIN: Minimum of memory in kilobytes.
+- MMAX: Maximum memory in kilobytes.
+- CACH: Cache size in kilobytes.
+- CHMIN: Minimal channels in units.
+- CHMAX: Maximum channels in units.
+- PRP: Relative Performance Published
+- ERP: Estimated relative performance.
+
+##Summary
 ```{r}
 summary(cpuData)
 ```
 
-##(Boxplots e interprestacion)
-##(Sezgo de los datos. Interpretacion)
-##(Histogramas. Interpretacion)
-##(Cuartiles. Interpretacion)
-##(Correlacion. Interpretacion)
-Como el conjunto de datos, contiene dos atributos que no son numericas, primero necesitamos quitar dichas columnas:
+##Boxplots
+##Sezgo
+##Histograms
+##Quartiles
+##Correlation
+
+Correlation is a statistical function that allows to find the linear dependence of two random variables X and Y.
+
+The correlation coefficient r can have a range between -1 and 1, being one (1), a perfect dependency, minus one (-1) the anti-correlation, and 0 being null correlation.
+
+As the coefficient increases, it means that Y increases when X does, the reverse is true as it decreases, the increase is smaller, and if it becomes negative, it becomes a decrease.
+
+Since the dataset contains two non-numeric attributes, we first need to remove those columns:
 
 
 ```{r Correlacion}
 
-#Quitando las columnas no numericas
+#Removing non-numeric columns
 cpuMatrix <- cpuData[-1]
 cpuMatrix <- cpuMatrix[-1]
 ```
 
-Una vez eliminadas las columnas no numericas, podemos utililzar la funcion cor() para encontrar los coficientes de correlacion de la matriz.
+Once the non-numeric columns have been removed, we can use the cor () function to find the correlation coefficients of the matrix.
 ```{r}
-#Correlacion de la matriz
-#Podemos ver, que segun sus coeficientes de correlacion, cuando los ciclos con base al tiempo son mas pequeÃ±os, todas las otras variables tienden a aumentar un poco. 
+# Matrix mapping
+
+# We can see that according to their correlation coefficients, when time-based cycles are smaller, all other variables tend to increase slightly. 
 cor(cpuMatrix)
 
 ```
-La Correlacion es una funcion estadistica que permite encontrar la dependencia linear de dos variables aleatorias X y Y. El coeficiente de correlacion r puede tener un rango de entre -1 y 1, siendo uno 1, una dependencia perfecta, y menos uno, la anti-correlacion, y 0 siendo nula correlacion. Conforme el coeficiente aumenta, significa que Y incrementa cuando X lo hace, lo inverso tambien es verdad, conforme va disminuyendo, el incremento es menor, y si se veulve negativo, este se convierte en decremento.
+
 
 ##Scatterplot
 Las graficas de dispersion sirven para mostrar la dependencia entre dos variable X y Y. Pueden ser una manera de visualizar la correlacion de dos variables.

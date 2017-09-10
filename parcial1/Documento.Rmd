@@ -110,6 +110,6 @@ plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="R
 ```
 
 
-#Conclusión
+#Conclusion
 
 

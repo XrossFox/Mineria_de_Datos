@@ -10,12 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, echo=FALSE}
 cpuData <- read.csv("machine.csv")
 ```
-###Instructor :
+##Instructor :
 
 - Pasillas Diáz José Ramon
 
 
-###Authors :
+##Authors :
 
 - David del real
 - Kevin Salmon
@@ -37,10 +37,10 @@ The purpose is to find an estimate of the performance of these processors and co
 
 #Exploratory Analysis
 
-##Descripcion de Variables
+##Variables Overview
 
-- Vendor Name (No need for an explanation here).
-- Model.
+- Vendor.Name. The name of the manufacturer.
+- Model. The model of the Cpu
 - MYCT: It's the machine cycle in nanoseconds.
 - MMIN: Minimum of memory in kilobytes.
 - MMAX: Maximum memory in kilobytes.
@@ -56,9 +56,9 @@ summary(cpuData)
 ```
 
 ##Boxplots
-##Sezgo
+##Bias
 ##Histograms
-##Quartiles
+##Cuartiles
 ##Correlation
 
 Correlation is a statistical function that allows to find the linear dependence of two random variables X and Y.
@@ -88,22 +88,25 @@ cor(cpuMatrix)
 
 
 ##Scatterplot
-Las graficas de dispersion sirven para mostrar la dependencia entre dos variable X y Y. Pueden ser una manera de visualizar la correlacion de dos variables.
+The dispersion graphs serve to show the dependence between two variables X and Y. They can be a way to visualize the correlation of two variables.
 ```{r}
 
-#Grafica de scatter `para la correlacion de PRP y MMAX`
-plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Rendimiento relativo publicado",ylab = "Memoria maxima en KB")
+#Scatterplot for the correlation of PRP and MMAX.`
+plot(cpuMatrix$PRP,cpuMatrix$MMAX,xlab="Relative performance published",ylab = "Maximum memory in KB")
 
 
-#Podemos apreciar, cuando la memoria maxima aumenta, tambien el rendimiento relativo publicado incrementa
+#We can appreciate, when the maximum memory increases, also the published relative performance increases
 
-#Grafica de scatter `para la correlacion de ERP y MMAX`
-plot(cpuMatrix$ERP,cpuMatrix$MMAX,xlab = "Rendimiento relativo estimado",ylab = "Memoria Maxima en KB")
-#La estimacion de rendimiento tambien aumenta linearmente con la memoria en KB
+#Scatterplot for the correlation of ERP and MMAX.
+plot(cpuMatrix$ERP,cpuMatrix$MMAX,xlab = "Estimated relative performance",ylab = "Maximum memory in KB")
 
-#Grafica de scatter `para la correlacion de PRP y ERP`
-plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Rendimiento relativo estimado",ylab="Rendimiento relativo publicado")
-#La relacion entre Lo estimado y lo publicado. Lo optimo deberia ser que la correlacion fuera perfecta, significaria que los datos publicados son congruentes con los datos estimados.
+#The performance estimate also increases linearly with memory in KB
+
+#Scatterplot for the correlation of PRP and ERP.
+plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="Relative performance published")
+
+#The relationship between the estimated and the published.
+#The optimum should be that the correlation is perfect, it would mean that the published data are congruent with the estimated data.
 ```
 
 

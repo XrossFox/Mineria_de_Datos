@@ -2,3 +2,5 @@
 *.html
 
 *.Rhistory
+
+parcial1/\.RData

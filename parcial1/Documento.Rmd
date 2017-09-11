@@ -59,22 +59,21 @@ summary(cpuData)
 ##Bias
 
 ##Histograms
-###We can se in the histogram that the distribution favors to the left wich makes sense. this must be the comercial cpu's and to the rigth we see cpu's that where developed for more specialiced purposes
+##we can se in the next histograms that the distribution favors to the left wich makes sense. this must be the comercial cpu's and to the rigth we see cpu's that where developed for more specialiced purposes
 ```{r}
 
 hist(cpuData$MMAX, xlab = 'Max memory in kb',main = 'Histogram of max memory in kb', border = 'black',col = 'orange' )
 hist(cpuData$MMIN, xlab = 'Min memory in kb',main = 'Histogram of min memory in kb', border = 'black',col = 'orange' )
-hist(cpuData$CHMAX, xlab = 'Max cache in kb',main = 'Histogram of max cache in kb', border = 'black',col = 'orange' )
-hist(cpuData$CHMIN, xlab = 'Min cache in kb',main = 'Histogram of min cache in kb', border = 'black',col = 'orange' )
+hist(cpuData$CHMAX, xlab = 'Cache in kb',main = 'Histogram of Cache in kb', border = 'black',col = 'red' )
 
 ```
-###Histogrm of machine cycle in nanoseconds
+##Histogram of machine cycle in nanoseconds
 ```{r}
 hist(cpuData$MYCT, xlab = 'machine Cycle in kb/nanoseconds',main = 'Histogram of Cycle', border = 'black',col = 'green' )
 ```
 
 
-###The nex histograms show the performance, both estimated and publicated
+##The next histograms show the performance, both estimated and publicated
 
 ```{r}
 hist(cpuData$PRP, xlab = 'Publicated performance in kb/nanoseconds',main = 'Histogram of Publicated performance', border = 'black',col = 'blue' )
@@ -87,55 +86,50 @@ hist(cpuData$ERP, xlab = 'Estimated performance in kb/nanoseconds',main = 'Histo
 sortedCpuData <- data.frame(MYCT = (sort(cpuData$MYCT)), MMIN = (sort(cpuData$MMIN)),MMAX = (sort(cpuData$MMAX)),CACH = (sort(cpuData$CACH)),CHMIN = (sort(cpuData$CHMIN)),CHMAX = (sort(cpuData$CHMAX)),PRP = (sort(cpuData$PRP)),ERP = (sort(cpuData$ERP)))
 head(sortedCpuData)
 ```
-###Next let's obtain the quartiles and plot them
-MACHINE CYCLE
-whe can see the minimum value is 17 while the maximum value is 1500 and the median 110
+###Next let's obtain the quartiles
+MACHINE CYCLE  
+Minimum value is 17 while the maximum value is 1500 and the median 110
 lowest fall below 50 kb/nanoseconds 
 highest are above 225 kb/nanoseconds
 and the rest fall between them being split by 110 kb/nanoseconds
 ```{r}
 quantile(sortedCpuData$MYCT)
-boxplot(sortedCpuData$MYCT, horizontal = TRUE)
 ```
 
-MIN MEMORY IN KB 
-whe can see the minimum value is 64 while the maximum value is 32000 and the median 2000
+MIN MEMORY IN KB  
+Minimum value is 64 while the maximum value is 32000 and the median 2000
 lowest fall below 768 kb 
 highest are above 4000 kb
 and the rest fall between them being split by 200 kb
 ```{r}
 quantile(sortedCpuData$MMIN)
-boxplot(sortedCpuData$MMIN, horizontal = TRUE)
 ```
 
-MAX MEMORY IN KB 
-whe can see the minimum value is 64 while the maximum value is 64000 and the median 8000
+MAX MEMORY IN KB   
+Minimum value is 64 while the maximum value is 64000 and the median 8000
 lowest fall below 4000 kb 
 highest are above 16000 nanoseconds
 and the rest fall between them being split by 8000 kb
 ```{r}
 quantile(sortedCpuData$MMAX)
-boxplot(sortedCpuData$MMAX, horizontal = TRUE)
 ```
 
-PUBLICATED PERFORMANCE 
-whe can see the minimum value is 6 while the maximum value is 1150 kb/nanoseconds and the median 50 kb/nanoseconds
+PUBLICATED PERFORMANCE  
+Minimum value is 6 while the maximum value is 1150 kb/nanoseconds and the median 50 kb/nanoseconds
 lowest fall below 27  kb/nanoseconds
 highest are above 113 kb/nanoseconds
 and the rest fall between them being split by 50 kb/nanoseconds
 ```{r}
 quantile(sortedCpuData$PRP)
-boxplot(sortedCpuData$MMIN, horizontal = TRUE)
 ```
 
-ESTIMATED PERFORMANCE 
-whe can see the minimum value is 15 kb/nanoseconds while the maximum value is 1238 and the median 45 kb/nanoseconds
+ESTIMATED PERFORMANCE  
+Minimum value is 15 kb/nanoseconds while the maximum value is 1238 and the median 45 kb/nanoseconds
 lowest fall below 28  kb/nanoseconds
 highest are above 101 kb/nanoseconds
 and the rest fall between them being split by 45 kb/nanoseconds
 ```{r}
 quantile(sortedCpuData$ERP)
-boxplot(sortedCpuData$MMIN, horizontal = TRUE)
 ```
 
 ##Boxplot

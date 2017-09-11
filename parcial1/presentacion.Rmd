@@ -1,18 +1,22 @@
 ---
 title: "Cpu Performance Analysis"
-output: ioslides_presentation
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+```{r, echo=FALSE}
+cpuData <- read.csv("machine.csv")
+```
 ## Cpu Performance Analysis
 
 
 Instructor :
 
-Pasillas Di�z Jos� Ramon.
+Pasillas Diaz Jose Ramon.
 
 Authors:
 
@@ -30,65 +34,131 @@ But, is there any way to know which vendors are loyal to their customers and act
 We used a dataset thath help to answer the question.
  
 
-## Slide with R Output
+## Summary
 
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, echo = TRUE}
+summary(cpuData)
 ```
 
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
 
 ##Boxplots of the data
 A boxplot is a method for graphically depicting groups of numerical data through their quartiles.
+Boxplot of machine cycle time
 ```{r plotbox}
-#Boxplot of machine cycle time
+quantile(cpuData$MYCT)
 boxplot(cpuData$MYCT,
         main = "Boxplot of Machine cycle time",
         ylab = "Nanosenconds (Ns.)") 
 
-#Boxplot of the minimum main memory
+```
+  
+  
+
+Boxplot of the minimum main memory
+```{r}
+quantile(cpuData$MMIN)
 boxplot(cpuData$MMIN,
         main = "Boxplot of Minimum main memory",
         ylab = "Kilobytes (Kb.)")
+```
+  
+  
 
-#Boxplot of the maximum main memory
+Boxplot of the maximum main memory
+```{r}
+quantile(cpuData$MMAX)
 boxplot(cpuData$MMAX,
         main = "Boxplot of Maximum main memory",
         ylab = "Kilobytes (Kb.)") 
+```
 
-#boxplot of the cache memory
+  
+  
+boxplot of the cache memory
+```{r}
+quantile(cpuData$CACH)
 boxplot(cpuData$CACH,
         main = "Boxplot of cache memory",
         ylab = "Kilobytes (Kb.)") 
+```
+  
+  
 
-#boxplot of the maximum main memory
+boxplot of the maximum main memory
+```{r }
+quantile(cpuData$MMAX)
 boxplot(cpuData$MMAX,
         main = "Boxplot of Maximum main memory",
         ylab = "Kilobytes (Kb.)")
+```
+  
+  
 
-#boxplot of the minimum channels
+boxplot of the minimum channels
+```{r}
+quantile(cpuData$CHMIN)
 boxplot(cpuData$CHMIN,
         main = "Boxplot of Minimum channels",
         ylab = "Units (U.)")
+```
 
-#boxplot of the maximum channels
+  
+  
+boxplot of the maximum channels
+```{r}
+quantile(cpuData$CHMAX)
 boxplot(cpuData$CHMAX,
         main = "Boxplot of Maximum channels",
         ylab = "Units (U.)")
-
-#boxploot of the relative performance
+```
+  
+  
+  
+boxplot of the relative performance
+```{r}
+quantile(cpuData$PRP)
 boxplot(cpuData$PRP,
         main = "Boxplot of published relative performance",
         ylab = "Performance (P.)") 
+```
+  
+    
 
-#boxplot of the estimated relative performance from original article
-boxplot(cpuData$MMAX,
+boxplot of the estimated relative performance from original article
+```{r}
+quantile(cpuData$ERP)
+boxplot(cpuData$ERP,
         main = "Boxplot of estimated relative performance from original article",
         ylab = "Performance (P.)") 
 ```
+  
+  
+##Histograms
+Max and Min memory in kb
+```{r}
 
+hist(cpuData$MMAX, xlab = 'Max memory in kb',main = 'Histogram of max memory in kb', border = 'black',col = 'orange' )
+hist(cpuData$MMIN, xlab = 'Min memory in kb',main = 'Histogram of min memory in kb', border = 'black',col = 'orange' )
+```
+  
+Cache in kb
+
+```{r}
+hist(cpuData$CHMAX, xlab = 'Cache in kb',main = 'Histogram of Cache in kb', border = 'black',col = 'red' )
+
+```
+  
+  
+Histogram of machine cycle in nanoseconds
+```{r}
+hist(cpuData$MYCT, xlab = 'Machine Cycle in kb/nanoseconds',main = 'Histogram of Machine Cycle', border = 'black',col = 'green' )
+```
+  
+  
+The nex histograms show the performance, both estimated and publicated
+
+```{r}
+hist(cpuData$PRP, xlab = 'Publicated performance in kb/nanoseconds',main = 'Histogram of Publicated performance', border = 'black',col = 'blue' )
+hist(cpuData$ERP, xlab = 'Estimated performance in kb/nanoseconds',main = 'Histogram of Public performance', border = 'black',col = 'blue' )
+```
 

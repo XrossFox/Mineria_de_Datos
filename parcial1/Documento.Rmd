@@ -274,6 +274,8 @@ plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="R
 
 #Conclusion
 =======
+Thanks to the analysis of data that we carry out, we conclude that there are some cpus in the market with an estimated yield below the real value.
 
+There was also a huge number of lower performing cpu's wich may as well be the ones used for comercial value compared to  the high performing cpu's that may have been used in specialiced equipment.
 
 

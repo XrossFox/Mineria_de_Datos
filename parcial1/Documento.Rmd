@@ -59,7 +59,7 @@ summary(cpuData)
 ##Bias
 
 ##Histograms
-##we can se in the next histograms that the distribution favors to the left wich makes sense. this must be the comercial cpu's and to the rigth we see cpu's that where developed for more specialiced purposes
+We can se in the next histograms that the distribution favors to the left wich makes sense. this must be the comercial cpu's and to the rigth we see cpu's that where developed for more specialiced purposes
 ```{r}
 
 hist(cpuData$MMAX, xlab = 'Max memory in kb',main = 'Histogram of max memory in kb', border = 'black',col = 'orange' )

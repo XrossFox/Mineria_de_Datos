@@ -138,7 +138,95 @@ quantile(sortedCpuData$ERP)
 boxplot(sortedCpuData$MMIN, horizontal = TRUE)
 ```
 
+##Boxplot
+A box plot or boxplot is a method for graphically depicting groups of numerical data through their quartiles.
 
+Box plots may also have lines extending vertically from the boxes (whiskers) indicating variability outside the upper and lower quartiles, 
+
+hence the terms box-and-whisker plot and box-and-whisker diagram. 
+
+```{r Boxplots}
+#Boxplot of machine cycle time
+boxplot(cpuData$MYCT,
+        main = "Boxplot of Machine cycle time",
+        ylab = "Nanosenconds (Ns.)") 
+
+#Boxplot of the minimum main memory
+boxplot(cpuData$MMIN,
+        main = "Boxplot of Minimum main memory",
+        ylab = "Kilobytes (Kb.)")
+
+#Boxplot of the maximum main memory
+boxplot(cpuData$MMAX,
+        main = "Boxplot of Maximum main memory",
+        ylab = "Kilobytes (Kb.)") 
+
+#boxplot of the cache memory
+boxplot(cpuData$CACH,
+        main = "Boxplot of cache memory",
+        ylab = "Kilobytes (Kb.)") 
+
+#boxplot of the maximum main memory
+boxplot(cpuData$MMAX,
+        main = "Boxplot of Maximum main memory",
+        ylab = "Kilobytes (Kb.)")
+
+#boxplot of the minimum channels
+boxplot(cpuData$CHMIN,
+        main = "Boxplot of Minimum channels",
+        ylab = "Units (U.)")
+
+#boxplot of the maximum channels
+boxplot(cpuData$CHMAX,
+        main = "Boxplot of Maximum channels",
+        ylab = "Units (U.)")
+
+#boxploot of the relative performance
+boxplot(cpuData$PRP,
+        main = "Boxplot of published relative performance",
+        ylab = "Performance (P.)") 
+
+#boxplot of the estimated relative performance from original article
+boxplot(cpuData$MMAX,
+        main = "Boxplot of estimated relative performance from original article",
+        ylab = "Performance (P.)") 
+```
+
+Skewness is a term in statistics used to describes asymmetry from the normal distribution in 
+
+a set of statistical data. Skewness can come in the form of negative skewness or positive skewness, 
+
+depending on whether data points are skewed to the left and negative, or to the right and positive of the data average. 
+
+A dataset that shows this characteristic differs from a normal bell curve.
+
+```{r Skewness}
+library(e1071)
+
+##Skewness of cycle time
+skewness(cpuData$MYCT)
+
+##Skewness of minimum main memory
+skewness(cpuData$MMIN)
+
+##Skewness of maximum main memory
+skewness(cpuData$MMAX)
+
+##Skewness of cache of memory
+skewness(cpuData$CACH)
+
+##Skewness of minimum channels
+skewness(cpuData$CHMIN)
+
+##Skewness of maximum channels
+skewness(cpuData$CHMAX)
+
+##Skewness of relative performance
+skewness(cpuData$PRP)
+
+##Skewness of estimated relative performance
+skewness(cpuData$ERP)
+```
 
 ##Correlation
 

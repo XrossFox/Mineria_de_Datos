@@ -272,8 +272,8 @@ plot(cpuMatrix$ERP,cpuMatrix$PRP,xlab = "Estimated relative performance",ylab="R
 #The optimum should be that the correlation is perfect, it would mean that the published data are congruent with the estimated data.
 ```
 
-#Conclusion
-=======
+##Conclusion
+
 Thanks to the analysis of data that we carry out, we conclude that there are some cpus in the market with an estimated yield below the real value.
 
 There was also a huge number of lower performing cpu's wich may as well be the ones used for comercial value compared to  the high performing cpu's that may have been used in specialiced equipment.

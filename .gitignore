@@ -4,3 +4,5 @@
 *.Rhistory
 
 parcial1/\.RData
+
+parcial2/k-nn/\.RData

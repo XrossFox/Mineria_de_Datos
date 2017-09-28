@@ -1,0 +1,114 @@
+---
+title: "Parcial 2"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Analisis de los Datos
+### Descripcion De Variables:
+Las siguientes variables son las que aparecen en nuestro dataset.
+
+- marca_temporal: El dia y la hora en que fueron tomados los datos.
+
+- carrera: El nombre de la carrera a la que el alumno pertenece, este es el atributo
+a predecir con el algoritmo K-NN.
+
+- gusto_por_las_matematicas: Del 1 al 10, cual es el gusto del alumnos por la matematicas.
+utilidad_de_matematicas: Del 1 al 10, cual es la utilidad de las matematicas percibida por
+el alumno.
+
+- tiempo_computadora_por_dia: Horas que el alumno pasa usando una computadora.
+
+## Analisis de los Datos
+### Descripcion De Variables (Continuación)
+
+- numero_de_idiomas: Los idiomas que maneja el alumno de manera basica.
+
+- gusto_por_cocinar:Del 1 al 10, el gusto del estudiante por la cocina.
+
+- horas_de_ejercicio_por_semana: Horas que pasa el estudiante ejercitandose por semana.
+
+- promedio_de_horas_clase: Promedio de horas que pasa el estudiante en clase al dia.
+
+## Analisis de los Datos
+### Descripcion De Variables (Continuación)
+
+- nivel_de_sociable: Del 1 al 10, la percepcion del nivel de socialidad que tiene el alumno
+sobre si mismo.
+
+- libros_escolares_al_semestre: La cantidad de libros escolares que el alumno utiliza al
+semestre.
+
+- gusto_trabajo_en_equipo: Del 1 al 10, la percepcion que el alumno tiene sobre su gusto a
+trabajar en equipo.
+
+- importancia_por_la_apariencia_personal_en_clase: Del 1 al 10, la percepcion que tiene el
+alumno sobre la importancia de la apariencia personal en el salon de clases.
+
+- horas_de_videojuegos_al_dia: Las horas que el alumno dedica a los
+videojuegos al dia.
+
+## Analisis de los Datos
+### Descripcion De Variables (Continuación)
+
+- tolerancia_por_la_sangre: Del 1 al 10, el nivel de tolerancia a la sangre que tiene el
+alumno segun el mismo.
+
+- gusto_de_trabajar_con_sustancias: Del 1 al 10, el gusto percibido por el estudiante
+a trabajar con sustancias quimicas.
+
+- conocimiento_primeros_auxilios: Conocimiento de primero auxilio.
+
+- solidaridad: Del 1 al 10, el nivel de solidaridad del alumno segun el mismo.
+
+- viajes_al_año: La cantidad de viajes que reliza al año.
+
+## Analisis de los Datos
+### Descripcion De Variables (Continuación)
+
+- conocimiento_por_la_cultura_de_tu_estado: Del 1 al 10, el nivel de conocimiento que posee el 
+alumno sobre la cultura de su estado, segun el mismo.
+
+- cuidado_por_la_alimentacion: Del 1 al 10, el nivel de cuidado que tiene el alumno en su
+alimentacion segun el mismo.
+
+- porcentaje_hombres_mujeres: El Porcentaje de hombres y mujeres en el grupo del alumno
+expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
+
+## Analisis de los Datos
+### Descripcion De Variables (Continuación)
+
+- destreza_física: Del 1 al 10, la destreza fisica que tiene el alumno segun el mismo.
+
+- destreza_mental: Del 1 al 10, la destreza mental que el alumno tiene segun el mismo.
+
+- herramientas_adicionales: El numero de herramientas adicionales que utiliza de 
+manera cotidiana en sus estudios.
+
+## La Talacha
+
+```{r pressure}
+plot(pressure)
+```
+

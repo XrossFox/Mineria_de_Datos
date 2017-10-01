@@ -157,7 +157,7 @@ boxplot(alumnos$gusto_por_cocinar)
 ## Boxplots
 ### Horas de Ejercicio Por Semana
 ```{r}
-#boxplot(alumnos$horas_de_ejercicio_por_semana)
+boxplot(alumnos$horas_de_ejercicio_por_semana)
 ```
 
 ## Boxplots
@@ -217,7 +217,7 @@ boxplot(alumnos$solidaridad)
 ## Boxplots
 ### Cantidad De Viajes Al Año
 ```{r}
-#boxplot(alumnos$viajes_al_anio)
+boxplot(alumnos$viajes_al_anio)
 ```
 
 ## Boxplots
@@ -229,7 +229,7 @@ boxplot(alumnos$conocimiento_por_la_cultura_de_tu_estado)
 ## Boxplots
 ### Destreza Fisica
 ```{r}
-#boxplot(alumnos$destreza_fisica)
+boxplot(alumnos$destreza_fisica)
 ```
 
 ## Boxplots
@@ -241,7 +241,7 @@ boxplot(alumnos$destreza_mental)
 ## Boxplots
 ### Uso de Herramientas Adicionales
 ```{r}
-#boxplot(alumnos$herramientas_adicionales)
+boxplot(alumnos$herramientas_adicionales)
 ```
 
 ## La Talacha

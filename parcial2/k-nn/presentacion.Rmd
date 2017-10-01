@@ -107,14 +107,12 @@ manera cotidiana en sus estudios.
 ## Carrera
 ```{r}
 summary(alumnos$carrera)
-skewness(alumnos$carrera)
-boxplot(alumnos$carrera)
 ```
 
 ##Carrera 2
 
-```{r}
-hist(alumnos$carrera, xlab = 'Carrera', main = 'Histograma de Carreras')
+```{r,fig.height = 5, fig.width = 8}
+barplot(prop.table(table(alumnos$carrera)))
 ```
 
 

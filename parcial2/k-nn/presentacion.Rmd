@@ -255,7 +255,7 @@ hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 
 summary(alumnos$viajes_al_ano)
 skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
-hist(alumnos$solidaridad, xlab ="viajes al año",main = "viajes al año")
+hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
 ```
 
 ## Conocimiento De La Cultura De Su Estado

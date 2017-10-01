@@ -73,4 +73,6 @@ boxplot(cpuData$PRP,
 boxplot(cpuData$MMAX,
         main = "Boxplot of estimated relative performance from original article",
         ylab = "Performance (P.)") 
+
+
 >>>>>>> Stashed changes

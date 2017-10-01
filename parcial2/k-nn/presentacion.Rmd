@@ -8,6 +8,7 @@ knitr::opts_chunk$set(echo = FALSE)
 alumnos <-read.csv("dataset-alumnos-v2.csv")
 library("e1071")
 
+
 ```
 
 ## R Markdown
@@ -435,4 +436,19 @@ normalize = function(x){
 alumnos[is.na(alumnos)] <- 1
 alumnos_n = sapply(alumnos[,c(3:25)],normalize)
 #alumnos_n
+```
+
+##Correlation of the data
+### Delete of non numeric attributes
+```{r Correlation, echo=TRUE}
+alumnosData = alumnos[-1]
+alumnosData = alumnosData[-1]
+
+```
+
+
+```{r, echo=TRUE}
+## As of now the data is not being printed properly so i can't give a proper 
+## description of the data
+cor(alumnosData)
 ```

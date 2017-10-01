@@ -217,7 +217,7 @@ boxplot(alumnos$solidaridad)
 ## Boxplots
 ### Cantidad De Viajes Al Año
 ```{r}
-boxplot(alumnos$viajes_al_anio)
+boxplot(alumnos$viajes_al_ano)
 ```
 
 ## Boxplots

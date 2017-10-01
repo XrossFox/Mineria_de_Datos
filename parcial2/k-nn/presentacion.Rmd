@@ -213,19 +213,28 @@ boxplot(alumnos$gusto_trabajo_en_equipo)
 
 ## Boxplots
 ### Importancia De La Apariencia Personal En Clase
-```{r}
+Los estudientes en promedio piensa n que la importancia es de 5. Esta ligeramente sezgado a la izquierda, esta bastante balanceado. El primer cuartil abarca entre 3 y 4, el tercero entre 6 y 8. El limite superior es de 10 y el inferior es de 0.
+```{r fig11, fig.height = 3.5, fig.width = 8}
+skewness(alumnos$importancia_por_la_apariencia_personal_en_clase)
 boxplot(alumnos$importancia_por_la_apariencia_personal_en_clase)
 ```
 
-## Boxplots
+## Horas De Videojuegos Al Dia
+Otra grafica interesante. En promedio, los alumnos juegan 1.1 horas de videojuegos, el primer percentil abarca 0, y el tercero comienza en 1. La mediana es de 0. El limite superior es de 2. Cualquiera encima de 2 horas es considerado un outlier.
+
+## Boxplot y Summary
 ### Horas De Videojuegos Al Dia
-```{r}
+```{r fig12, fig.height = 4, fig.width = 8}
+summary(alumnos$horas_de_videojuegos_al_dia)
+skewness(alumnos$horas_de_videojuegos_al_dia)
 boxplot(alumnos$horas_de_videojuegos_al_dia)
 ```
 
 ## Boxplots
-### Tolerancia Por La Sangre
+## Tolerancia Por La Sangre
 ```{r}
+summary(alumnos$tolerancia_por_la_sangre)
+skewness(alumnos$tolerancia_por_la_sangre)
 boxplot(alumnos$tolerancia_por_la_sangre)
 ```
 

@@ -6,7 +6,8 @@ output: ioslides_presentation
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 alumnos <-read.csv("dataset-alumnos-v2.csv")
-library("e1071")
+#install.packages("e1071")
+library(e1071)
 
 ```
 
@@ -132,7 +133,6 @@ summary(alumnos)
 El promedio de los alumnos tienen un gusto de las matematicas de 7, el tercer cuartil esta en 8, el primer cuartil abarca 5 y 6 y tiene un sezgo hacia la izquierda.
 ```{r fig1, fig.height = 4, fig.width = 8}
 skewness(alumnos$gusto_por_las_matematicas)
-```{r}
 boxplot(alumnos$gusto_por_las_matematicas)
 ```
 ## Histograma

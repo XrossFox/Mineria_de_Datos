@@ -195,14 +195,19 @@ boxplot(alumnos$nivel_de_sociable)
 ## Boxplots
 ### Libros Escolares Usados Al Semestre
 En promedio los estudiantes utilizan 3 libros de texto al semestre, la mayoria de la poblacion esta por debajo de la media en el cuartil 1, que abarca 1 y 2. El indice superior es 8, y el inferior es 0. Hay un outlier en 10. Sezgado hacia la derecha, lo que parece indicar que la mayoria de los estudiantes estan encima de la media, y no por debajo, como parece verse en el primer cuartil.
-```{r}
+
+## Boxplots
+### Libros Escolares Usados Al Semestre (Continuacion)
+```{r fig9, fig.height = 4, fig.width = 8}
 skewness(alumnos$libros_escolares_al_semestre)
 boxplot(alumnos$libros_escolares_al_semestre)
 ```
 
 ## Boxplots
 ### Gusto Por Trabajar En Equipo
-```{r}
+En promedio los estudiantes gustan de trabajar en equipo en un 7 de 10. El primer cuartil abarca de 5 a 6, el tercero, 8. El limite superior es 10, el inferior es 0. Sezgado hacia la izquierda, la mayoria de la poblacion esta por debajo de la media.
+```{r fig10, fig.height = 3.5, fig.width = 8}
+skewness(alumnos$gusto_trabajo_en_equipo)
 boxplot(alumnos$gusto_trabajo_en_equipo)
 ```
 

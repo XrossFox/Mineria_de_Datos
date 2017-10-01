@@ -271,7 +271,7 @@ boxplot(alumnos$destreza_mental)
 boxplot(alumnos$herramientas_adicionales)
 ```
 
-## La Talacha
+## Procesado De Los Datos
 ###Normalizacion de los datos numericos
 ```{r}
 normalize = function(x){
@@ -280,8 +280,6 @@ normalize = function(x){
 alumnos[3:25]
 alumnos[alumnos=="NA"] <- 0
 alumnos_n = sapply(alumnos[3:25],normalize)
-```
-```{r pressure}
-plot(pressure)
+str(alumnos_n)
 ```
 

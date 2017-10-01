@@ -123,11 +123,18 @@ expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
 - herramientas_adicionales: El numero de herramientas adicionales que utiliza de 
 manera cotidiana en sus estudios.
 
+## Carrera
+
 ## Gusto por Las Matematicas
 ```{r fig1, fig.height = 5, fig.width = 8}
 summary(alumnos$gusto_por_las_matematicas)
 skewness(alumnos$gusto_por_las_matematicas)
 boxplot(alumnos$gusto_por_las_matematicas)
+
+```
+## Gusto por Las Matematicas 2
+
+```{r}
 hist(alumnos$gusto_por_las_matematicas, xlab = 'Gusto por las matematicas',main = 'Histograma de Gusto por las matematicas')
 ```
 
@@ -136,14 +143,25 @@ hist(alumnos$gusto_por_las_matematicas, xlab = 'Gusto por las matematicas',main 
 summary(alumnos$utilidad_de_matematicas)
 skewness(alumnos$utilidad_de_matematicas)
 boxplot(alumnos$utilidad_de_matematicas)
+
+```
+
+## Utilidad De Las Matematicas 2
+
+```{r}
 hist(alumnos$utilidad_de_matematicas, xlab = '1 siendo el mas bajo y 10 el mas alto',main = 'Histograma de utilidad de las matematicas')
 ```
+
 
 ## Tiempo Invertido en la Computadora al Dia
 ```{r fig3, fig.height = 5, fig.width = 8}
 summary(alumnos$tiempo_computadora_por_dia)
 skewness(alumnos$tiempo_computadora_por_dia)
 boxplot(alumnos$tiempo_computadora_por_dia)
+```
+
+## Tiempo Invertido en la Computadora al Dia 2
+```{r}
 hist(alumnos$tiempo_computadora_por_dia, xlab = '1 siendo el mas bajo y 10 el mas alto',main = 'tiempo en la computadora')
 ```
 
@@ -152,15 +170,28 @@ hist(alumnos$tiempo_computadora_por_dia, xlab = '1 siendo el mas bajo y 10 el ma
 summary(alumnos$numero_de_idiomas)
 skewness(alumnos$numero_de_idiomas)
 boxplot(alumnos$numero_de_idiomas)
-hist(alumnos$numero_de_idiomas, xlab = 'numero de idiomas que dominan',main = 'Histograma de idiomas')
 ```
+
+## Idiomas 2
+
+```{r}
+hist(alumnos$numero_de_idiomas, xlab = 'numero de idiomas que dominan',main = 'Histograma de idiomas')
+
+```
+
 
 ## Gusto Por La Cocina
 ```{r fig5, fig.height = 5, fig.width = 8}
 summary(alumnos$gusto_por_cocinar)
 skewness(alumnos$gusto_por_cocinar)
 boxplot(alumnos$gusto_por_cocinar)
+```
+
+## Gusto Por La Cocina 2
+
+```{r}
 hist(alumnos$gusto_por_cocinar, xlab = 'siendo 1 el gusto minimo y 10 el mas alto',main = 'Histograma de gusto por cocinar')
+
 ```
 
 
@@ -169,7 +200,12 @@ hist(alumnos$gusto_por_cocinar, xlab = 'siendo 1 el gusto minimo y 10 el mas alt
 summary(alumnos$horas_de_ejercicio_por_semana)
 skewness(alumnos$horas_de_ejercicio_por_semana)
 boxplot(alumnos$horas_de_ejercicio_por_semana)
+```
+
+## Horas de Ejercicio Por Semana 2
+```{r}
 hist(alumnos$horas_de_ejercicio_por_semana, xlab = 'Horas de ejercicio a la semana',main = 'Histograma de Ejercicio')
+
 ```
 
 
@@ -178,7 +214,12 @@ hist(alumnos$horas_de_ejercicio_por_semana, xlab = 'Horas de ejercicio a la sema
 summary(alumnos$promedio_de_horas_clase)
 skewness(alumnos$promedio_de_horas_clase)
 boxplot(alumnos$promedio_de_horas_clase)
+```
+
+## Horas de Clase Al Dia 2
+```{r}
 hist(alumnos$promedio_de_horas_clase, xlab = 'Promedio de Horas de clase a la semana',main = 'Histograma de Horas de clase a la semana')
+
 ```
 
 
@@ -187,8 +228,14 @@ hist(alumnos$promedio_de_horas_clase, xlab = 'Promedio de Horas de clase a la se
 summary(alumnos$nivel_de_sociable)
 skewness(alumnos$nivel_de_sociable)
 boxplot(alumnos$nivel_de_sociable)
-hist(alumnos$nivel_de_sociable, xlab = 'Considerando el 1 como el mas bajo y 10 el mas alto',main = 'Histograma de Sociabilidad')
 ```
+
+## Nivel de Sociabilidad 2
+```{r}
+hist(alumnos$nivel_de_sociable, xlab = 'Considerando el 1 como el mas bajo y 10 el mas alto',main = 'Histograma de Sociabilidad')
+
+```
+
 
 ## Libros Escolares Usados Al Semestre
 
@@ -196,16 +243,27 @@ hist(alumnos$nivel_de_sociable, xlab = 'Considerando el 1 como el mas bajo y 10 
 summary(alumnos$libros_escolares_al_semestre)
 skewness(alumnos$libros_escolares_al_semestre)
 boxplot(alumnos$libros_escolares_al_semestre)
+```
+
+## Libros Escolares Usados Al Semestre 2
+```{r}
 hist(alumnos$libros_escolares_al_semestre, xlab = 'libros leidos en el semestre',main = 'Histograma de Libros')
+
 ```
 
 
-### Gusto Por Trabajar En Equipo
+## Gusto Por Trabajar En Equipo
 ```{r fig10, fig.height = 5, fig.width = 8}
 summary(alumnos$gusto_trabajo_en_equipo)
 skewness(alumnos$gusto_trabajo_en_equipo)
 boxplot(alumnos$gusto_trabajo_en_equipo)
+```
+
+## Gusto Por Trabajar En Equipo 2
+
+```{r}
 hist(alumnos$gusto_trabajo_en_equipo, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de trabajo en equipo')
+
 ```
 
 
@@ -214,92 +272,167 @@ hist(alumnos$gusto_trabajo_en_equipo, xlab = 'siendo 1 el mas bajo y 10 el mas a
 summary(alumnos$importancia_por_la_apariencia_personal_en_clase)
 skewness(alumnos$importancia_por_la_apariencia_personal_en_clase)
 boxplot(alumnos$importancia_por_la_apariencia_personal_en_clase)
-hist(alumnos$importancia_por_la_apariencia_personal_en_clase, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Apariencia Personal')
 ```
+
+## Importancia De La Apariencia Personal En Clase
+
+```{r}
+hist(alumnos$importancia_por_la_apariencia_personal_en_clase, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Apariencia Personal')
+
+```
+
 
 ## Horas De Videojuegos Al Dia
 ```{r fig12, fig.height = 5, fig.width = 8}
 summary(alumnos$horas_de_videojuegos_al_dia)
 skewness(alumnos$horas_de_videojuegos_al_dia)
 boxplot(alumnos$horas_de_videojuegos_al_dia)
-hist(alumnos$horas_de_videojuegos_al_dia, xlab = 'Horas de videojuegos a la semana',main = 'Histograma de Horas de videojuegs')
 ```
+
+## Horas De Videojuegos Al Dia 2
+
+```{r}
+hist(alumnos$horas_de_videojuegos_al_dia, xlab = 'Horas de videojuegos a la semana',main = 'Histograma de Horas de videojuegs')
+
+```
+
 
 ## Tolerancia Por La Sangre
 ```{r fig13, fig.height = 5, fig.width = 8}
 summary(alumnos$tolerancia_por_la_sangre)
 skewness(alumnos$tolerancia_por_la_sangre)
 boxplot(alumnos$tolerancia_por_la_sangre)
-hist(alumnos$tolerancia_por_la_sangre, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Tolerancia a la Sangre')
 ```
+
+## Tolerancia Por La Sangre 2
+
+```{r}
+hist(alumnos$tolerancia_por_la_sangre, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Tolerancia a la Sangre')
+
+```
+
 
 ## Interes Por El Uso Y Mezcla Con Sustancias
 ```{r fig14, fig.height = 5, fig.width = 8}
 summary(alumnos$gusto_de_trabajar_con_sustancias)
 skewness(alumnos$gusto_de_trabajar_con_sustancias)
 boxplot(alumnos$gusto_de_trabajar_con_sustancias)
-hist(alumnos$gusto_de_trabajar_con_sustancias, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Trabajar con sustancias')
 ```
 
+## Interes Por El Uso Y Mezcla Con Sustancias 2
+
+```{r}
+hist(alumnos$gusto_de_trabajar_con_sustancias, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Trabajar con sustancias')
+
+```
+
+## Primeros Auxilios
 
 ## Solidaridad
 ```{r fig15, fig.height = 5, fig.width = 8}
 summary(alumnos$solidaridad)
 skewness(alumnos$solidaridad)
 boxplot(alumnos$solidaridad)
-hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Solidaridad')
 ```
+
+## Solidaridad 2
+
+```{r}
+hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Solidaridad')
+
+```
+
 
 ## Cantidad De Viajes Al Año
 ```{r fig16, fig.height = 5, fig.width = 8}
 summary(alumnos$viajes_al_ano)
 skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
-hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
 ```
+
+## Cantidad De Viajes Al Año 2
+
+```{r}
+hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
+
+```
+
 
 ## Conocimiento De La Cultura De Su Estado
 ```{r fig18, fig.height = 5, fig.width = 8}
 summary(alumnos$conocimiento_por_la_cultura_de_tu_estado)
 skewness(alumnos$conocimiento_por_la_cultura_de_tu_estado)
 boxplot(alumnos$conocimiento_por_la_cultura_de_tu_estado)
-hist(alumnos$conocimiento_por_la_cultura_de_tu_estado, xlab = 'Considerado 1 como no conocer nada y 10 conocer mucho',main = 'Histograma de Conocimiento de Cultura')
 ```
 
-### Destreza Fisica
+## Conocimiento De La Cultura De Su Estado
+
+```{r}
+hist(alumnos$conocimiento_por_la_cultura_de_tu_estado, xlab = 'Considerado 1 como no conocer nada y 10 conocer mucho',main = 'Histograma de Conocimiento de Cultura')
+
+```
+
+## Cuidado En La Alimentacion
+```{r fig22, fig.height = 5, fig.width = 8}
+summary(alumnos$cuidado_por_la_alimentacion)
+skewness(alumnos$cuidado_por_la_alimentacion)
+boxplot(alumnos$cuidado_por_la_alimentacion)
+```
+
+## Destreza Fisica
 ```{r fig19, fig.height = 5, fig.width = 8}
 summary(alumnos$destreza_fisica)
 skewness(alumnos$destreza_fisica)
 boxplot(alumnos$destreza_fisica)
-hist(alumnos$destreza_fisica, xlab = 'Considerado 1 como no tener destreza fisica y 10 mucha destreza',main = 'Histograma de Destreza fisica')
 ```
+
+## Destreza Fisica 2
+
+```{r}
+hist(alumnos$destreza_fisica, xlab = 'Considerado 1 como no tener destreza fisica y 10 mucha destreza',main = 'Histograma de Destreza fisica')
+
+```
+
 
 ## Destreza Mental
 ```{r fig20, fig.height = 5, fig.width = 8}
 summary(alumnos$destreza_mental)
 skewness(alumnos$destreza_mental)
 boxplot(alumnos$destreza_mental)
-hist(alumnos$destreza_mental, xlab = 'Considerado 1 como no tener destreza mental y 10 mucha destreza',main = 'Histograma de Destreza mental')
 ```
+
+## Destreza Mental 2
+
+```{r}
+hist(alumnos$destreza_mental, xlab = 'Considerado 1 como no tener destreza mental y 10 mucha destreza',main = 'Histograma de Destreza mental')
+
+```
+
 
 ## Uso de Herramientas Adicionales
 ```{r fig21, fig.height = 5, fig.width = 8}
 summary(alumnos$herramientas_adicionales)
 skewness(alumnos$herramientas_adicionales)
 boxplot(alumnos$herramientas_adicionales)
+```
+
+## Uso de Herramientas Adicionales 2
+
+```{r}
 hist(alumnos$herramientas_adicionales, xlab = 'Cuantas herramientas son usadas en su carrera',main = 'Histograma de Herramientas Adicionales')
 
 ```
 
+
 ## Procesado De Los Datos
-###Normalizacion de los datos numericos
-Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea mas facil de visualizar la informacion
-```{r}
+### Normalizacion de los datos numericos
+Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
+```{r, echo=TRUE}
 normalize = function(x){
   return((x-min(x)) / (max(x)-min(x)))
 }
-alumnos[,c(3:25)]
+#alumnos[,c(3:25)]
 alumnos[is.na(alumnos)] <- 1
 alumnos_n = sapply(alumnos[,c(3:25)],normalize)
-alumnos_n
+#alumnos_n
 ```

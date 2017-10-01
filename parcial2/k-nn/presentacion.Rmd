@@ -9,25 +9,6 @@ alumnos <-read.csv("dataset-alumnos-v2.csv")
 library("e1071")
 
 ```
-
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
 ## Pre-procesado (otros)
 ### Acomodando el nombre de las variables
 Los nombres de las variables no estan optimizados para ser utilizados en este proyecto.
@@ -124,12 +105,25 @@ expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
 manera cotidiana en sus estudios.
 
 ## Carrera
+```{r}
+summary(alumnos$carrera)
+skewness(alumnos$carrera)
+boxplot(alumnos$carrera)
+```
+
+##Carrera 2
+
+```{r}
+hist(alumnos$carrera, xlab = 'Carrera', main = 'Histograma de Carreras')
+```
+
 
 ## Gusto por Las Matematicas
 ```{r fig1, fig.height = 5, fig.width = 8}
 summary(alumnos$gusto_por_las_matematicas)
 skewness(alumnos$gusto_por_las_matematicas)
 boxplot(alumnos$gusto_por_las_matematicas)
+
 
 ```
 ## Gusto por Las Matematicas 2
@@ -319,7 +313,7 @@ skewness(alumnos$gusto_de_trabajar_con_sustancias)
 boxplot(alumnos$gusto_de_trabajar_con_sustancias)
 ```
 
-## Interes Por El Uso Y Mezcla Con Sustancias 2
+## Interes Por El Uso Y Mezcla Con Sustancias
 
 ```{r}
 hist(alumnos$gusto_de_trabajar_con_sustancias, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Trabajar con sustancias')
@@ -328,6 +322,19 @@ hist(alumnos$gusto_de_trabajar_con_sustancias, xlab = 'siendo 1 el mas bajo y 10
 
 ## Primeros Auxilios
 
+```{r}
+summary(alumnos$conocimiento_primeros_auxilios)
+skewness(alumnos$conocimiento_primeros_auxilios)
+boxplot(alumnos$conocimiento_primeros_auxilios)
+```
+
+## Primeros Auxilios
+
+```{r}
+hist(alumnos$conocimiento_primeros_auxilios, xlab = 'Siendo 1 el mas bajo y 10 el mas alto' , main = 'Histograma de conocimientos acerca de primeros Auxilios')
+```
+
+
 ## Solidaridad
 ```{r fig15, fig.height = 5, fig.width = 8}
 summary(alumnos$solidaridad)
@@ -335,7 +342,7 @@ skewness(alumnos$solidaridad)
 boxplot(alumnos$solidaridad)
 ```
 
-## Solidaridad 2
+## Solidaridad
 
 ```{r}
 hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 'Histograma de Solidaridad')
@@ -350,7 +357,7 @@ skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
 ```
 
-## Cantidad De Viajes Al Año 2
+## Cantidad De Viajes Al Año
 
 ```{r}
 hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
@@ -379,14 +386,20 @@ skewness(alumnos$cuidado_por_la_alimentacion)
 boxplot(alumnos$cuidado_por_la_alimentacion)
 ```
 
-## Destreza Fisica
+## Cuidado en la Alimentacion.
+```{r}
+hist(alumnos$cuidado_por_la_alimentacion, xlab = 'Considerando 1 como no tener importancia y 10 como tener demasiada importancia' , main = 'Histograma del cuidado en la Alimentacion')
+```
+
+
+## Destreza Fisica.
 ```{r fig19, fig.height = 5, fig.width = 8}
 summary(alumnos$destreza_fisica)
 skewness(alumnos$destreza_fisica)
 boxplot(alumnos$destreza_fisica)
 ```
 
-## Destreza Fisica 2
+## Destreza Fisica.
 
 ```{r}
 hist(alumnos$destreza_fisica, xlab = 'Considerado 1 como no tener destreza fisica y 10 mucha destreza',main = 'Histograma de Destreza fisica')
@@ -436,3 +449,4 @@ alumnos[is.na(alumnos)] <- 1
 alumnos_n = sapply(alumnos[,c(3:25)],normalize)
 #alumnos_n
 ```
+

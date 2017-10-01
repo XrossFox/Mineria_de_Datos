@@ -123,172 +123,161 @@ expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
 - herramientas_adicionales: El numero de herramientas adicionales que utiliza de 
 manera cotidiana en sus estudios.
 
-## Resumen Estadistico de los Datos
-```{r Resumen, echo = TRUE}
-summary(alumnos)
-```
-
-## Boxplots
-### Gusto por Las Matematicas
-El promedio de los alumnos tienen un gusto de las matematicas de 7, el tercer cuartil esta en 8, el primer cuartil abarca 5 y 6 y tiene un sezgo hacia la izquierda.
-```{r fig1, fig.height = 4, fig.width = 8}
+## Gusto por Las Matematicas
+```{r fig1, fig.height = 5, fig.width = 8}
+summary(alumnos$gusto_por_las_matematicas)
 skewness(alumnos$gusto_por_las_matematicas)
 boxplot(alumnos$gusto_por_las_matematicas)
 ```
 
-## Boxplots
-### Utilidad De Las Matematicas
-En promedio, los alumnos encuntran la utilidad de las matematicas con un 10 de 10. Siendo el promedio el ultimo cuartil y el primero abarcando 8 y 9, siendo el limite inferior 5. Se encontraron tres supuestos outliers en 1, 2 y 3. Esta sezgado hacia la izquierda.
-```{r fig2, fig.height = 3.5, fig.width = 8}
+## Utilidad De Las Matematicas
+```{r fig2, fig.height = 5, fig.width = 8}
+summary(alumnos$utilidad_de_matematicas)
 skewness(alumnos$utilidad_de_matematicas)
 boxplot(alumnos$utilidad_de_matematicas)
 ```
 
-## Boxplots
-### Tiempo Invertido en la Computadora al Dia
-Los alumnos en promedio pasan 3 horas enfrente de la computadora, no hay outliers, siendo el limite superior, 10 y el inferior 0, el primer cuartil abarca 2, el tercero 4 y 5. Tiene un sezgo hacia la derecha. La mayoria de los alumnos se encuentran encima del segundo cuartil.
-```{r fig3, fig.height = 3.5, fig.width = 8}
+## Tiempo Invertido en la Computadora al Dia
+```{r fig3, fig.height = 5, fig.width = 8}
+summary(alumnos$tiempo_computadora_por_dia)
 skewness(alumnos$tiempo_computadora_por_dia)
 boxplot(alumnos$tiempo_computadora_por_dia)
 ```
 
-## Boxplots
-### Idiomas
-Esta es una grafica interesante. En promedio todos manejan dos idiomas y los que no, son considerados outliers. En este caso todos caen en el mismo cuartil. Sezgado hacia la derecha.
-```{r fig4, fig.height = 3.5, fig.width = 8}
+## Idiomas
+```{r fig4, fig.height = 5, fig.width = 8}
+summary(alumnos$numero_de_idiomas)
 skewness(alumnos$numero_de_idiomas)
 boxplot(alumnos$numero_de_idiomas)
 ```
 
-## Boxplots
-### Gusto Por La Cocina
-Los alumnos en promedio parecen gustar de cocinar por un 7 de 10. La grafica esta bastante bien balanceada, estando un poco sezgada hacia la izquierda. El primer cuartil abarca 5 y 6, el tercero abarca 8 y 9. El limite inferior es 0 y el superior es 10. No hay outliers.
-```{r fig5, fig.height = 3.5, fig.width = 8}
+## Gusto Por La Cocina
+```{r fig5, fig.height = 5, fig.width = 8}
+summary(alumnos$gusto_por_cocinar)
 skewness(alumnos$gusto_por_cocinar)
 boxplot(alumnos$gusto_por_cocinar)
 ```
 
-## Boxplots
-### Horas de Ejercicio Por Semana
-Los alumnos hacen en promedio 3 horas de ejercicio a la semana. El limite superior es de 13 y cualquiere estudiante encima de eso es un outlier. el primer cuartil abarca de 0 a 2 y el tercer cuartil de 4 a 5, donde esta la mayoria de los estudiantes. Esta sezgado hacia la derecha. 
-```{r fig6, fig.height = 3.5, fig.width = 8}
+
+## Horas de Ejercicio Por Semana
+```{r fig6, fig.height = 5, fig.width = 8}
+summary(alumnos$horas_de_ejercicio_por_semana)
 skewness(alumnos$horas_de_ejercicio_por_semana)
 boxplot(alumnos$horas_de_ejercicio_por_semana)
 ```
 
-## Boxplots
-### Horas de Clase Al Dia
-Los estudiantes reciben en pomedio 8 horas de clases al dia, el primer cuartil abarca de 6 a 7, el tercero solo 9. El limite superior siendo 12, y el inferior 2. Sezgado hacia la izquierda. La mayoria de los alumnos recibe de 6 a 8 horas diarias, y los que reciben menos de 2 son considerados outliers.
-```{r fig7, fig.height = 3.5, fig.width = 8}
+
+## Horas de Clase Al Dia
+```{r fig7, fig.height = 5, fig.width = 8}
+summary(alumnos$promedio_de_horas_clase)
 skewness(alumnos$promedio_de_horas_clase)
 boxplot(alumnos$promedio_de_horas_clase)
 ```
 
-## Boxplots
-### Nivel de Sociabilidad
-La mayoria de los alumnos se considera a si mismo en promedio un 8 de 10. La mayoria de la poblacion se encuentra por debajo de la media, entre 6 y 7, en el tercer cuartil se abarca el 9. El limite superior siendo 10 y el inferior 2. Hay un supuesto outlier en el 1. Sezgado hacia la izquierda.
-```{r fig8, fig.height = 3.5, fig.width = 8}
+
+## Nivel de Sociabilidad
+```{r fig8, fig.height = 5, fig.width = 8}
+summary(alumnos$nivel_de_sociable)
 skewness(alumnos$nivel_de_sociable)
 boxplot(alumnos$nivel_de_sociable)
 ```
 
-## Boxplots
-### Libros Escolares Usados Al Semestre
-En promedio los estudiantes utilizan 3 libros de texto al semestre, la mayoria de la poblacion esta por debajo de la media en el cuartil 1, que abarca 1 y 2. El indice superior es 8, y el inferior es 0. Hay un outlier en 10. Sezgado hacia la derecha, lo que parece indicar que la mayoria de los estudiantes estan encima de la media, y no por debajo, como parece verse en el primer cuartil.
+## Libros Escolares Usados Al Semestre
 
-## Boxplots
-### Libros Escolares Usados Al Semestre (Continuacion)
-```{r fig9, fig.height = 4, fig.width = 8}
+```{r fig9, fig.height = 5, fig.width = 8}
+summary(alumnos$libros_escolares_al_semestre)
 skewness(alumnos$libros_escolares_al_semestre)
 boxplot(alumnos$libros_escolares_al_semestre)
 ```
 
-## Boxplots
+
 ### Gusto Por Trabajar En Equipo
-En promedio los estudiantes gustan de trabajar en equipo en un 7 de 10. El primer cuartil abarca de 5 a 6, el tercero, 8. El limite superior es 10, el inferior es 0. Sezgado hacia la izquierda, la mayoria de la poblacion esta por debajo de la media.
-```{r fig10, fig.height = 3.5, fig.width = 8}
+```{r fig10, fig.height = 5, fig.width = 8}
+summary(alumnos$gusto_trabajo_en_equipo)
 skewness(alumnos$gusto_trabajo_en_equipo)
 boxplot(alumnos$gusto_trabajo_en_equipo)
 ```
 
-## Boxplots
-### Importancia De La Apariencia Personal En Clase
-Los estudientes en promedio piensa n que la importancia es de 5. Esta ligeramente sezgado a la izquierda, esta bastante balanceado. El primer cuartil abarca entre 3 y 4, el tercero entre 6 y 8. El limite superior es de 10 y el inferior es de 0.
-```{r fig11, fig.height = 3.5, fig.width = 8}
+
+## Importancia De La Apariencia Personal En Clase
+```{r fig11, fig.height = 5, fig.width = 8}
+summary(alumnos$importancia_por_la_apariencia_personal_en_clase)
 skewness(alumnos$importancia_por_la_apariencia_personal_en_clase)
 boxplot(alumnos$importancia_por_la_apariencia_personal_en_clase)
 ```
 
 ## Horas De Videojuegos Al Dia
-Otra grafica interesante. En promedio, los alumnos juegan 1.1 horas de videojuegos, el primer percentil abarca 0, y el tercero comienza en 1. La mediana es de 0. El limite superior es de 2. Cualquiera encima de 2 horas es considerado un outlier.
-
-## Boxplot y Summary
-### Horas De Videojuegos Al Dia
-```{r fig12, fig.height = 4, fig.width = 8}
+```{r fig12, fig.height = 5, fig.width = 8}
 summary(alumnos$horas_de_videojuegos_al_dia)
 skewness(alumnos$horas_de_videojuegos_al_dia)
 boxplot(alumnos$horas_de_videojuegos_al_dia)
 ```
 
-## Boxplots
 ## Tolerancia Por La Sangre
-```{r}
+```{r fig13, fig.height = 5, fig.width = 8}
 summary(alumnos$tolerancia_por_la_sangre)
 skewness(alumnos$tolerancia_por_la_sangre)
 boxplot(alumnos$tolerancia_por_la_sangre)
 ```
 
-## Boxplots
-### Interes Por El Uso Y Mezcla Con Sustancias
-```{r}
+## Interes Por El Uso Y Mezcla Con Sustancias
+```{r fig14, fig.height = 5, fig.width = 8}
+summary(alumnos$gusto_de_trabajar_con_sustancias)
+skewness(alumnos$gusto_de_trabajar_con_sustancias)
 boxplot(alumnos$gusto_de_trabajar_con_sustancias)
 ```
 
-## Boxplots
-### Solidaridad
-```{r}
+
+## Solidaridad
+```{r fig15, fig.height = 5, fig.width = 8}
+summary(alumnos$solidaridad)
+skewness(alumnos$solidaridad)
 boxplot(alumnos$solidaridad)
 ```
 
-## Boxplots
-### Cantidad De Viajes Al AÃ±o
-```{r}
+## Cantidad De Viajes Al Año
+```{r fig16, fig.height = 5, fig.width = 8}
+summary(alumnos$viajes_al_ano)
+skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
 ```
 
-## Boxplots
-### Conocimiento De La Cultura De Su Estado
-```{r}
+## Conocimiento De La Cultura De Su Estado
+```{r fig18, fig.height = 5, fig.width = 8}
+summary(alumnos$conocimiento_por_la_cultura_de_tu_estado)
+skewness(alumnos$conocimiento_por_la_cultura_de_tu_estado)
 boxplot(alumnos$conocimiento_por_la_cultura_de_tu_estado)
 ```
 
-## Boxplots
 ### Destreza Fisica
-```{r}
+```{r fig19, fig.height = 5, fig.width = 8}
+summary(alumnos$destreza_fisica)
+skewness(alumnos$destreza_fisica)
 boxplot(alumnos$destreza_fisica)
 ```
 
-## Boxplots
-### Destreza Mental
-```{r}
+## Destreza Mental
+```{r fig20, fig.height = 5, fig.width = 8}
+summary(alumnos$destreza_mental)
+skewness(alumnos$destreza_mental)
 boxplot(alumnos$destreza_mental)
 ```
 
-## Boxplots
-### Uso de Herramientas Adicionales
-```{r}
+## Uso de Herramientas Adicionales
+```{r fig21, fig.height = 5, fig.width = 8}
+summary(alumnos$herramientas_adicionales)
+skewness(alumnos$herramientas_adicionales)
 boxplot(alumnos$herramientas_adicionales)
 ```
 
 ## Procesado De Los Datos
 ###Normalizacion de los datos numericos
-```{r}
+```{r, echo = TRUE}
 normalize = function(x){
   return((x-min(x)) / (max(x)-min(x)))
 }
-alumnos[3:25]
+#alumnos[3:25]
 alumnos[alumnos=="NA"] <- 0
 alumnos_n = sapply(alumnos[3:25],normalize)
-str(alumnos_n)
 ```
 

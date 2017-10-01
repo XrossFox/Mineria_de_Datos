@@ -449,7 +449,6 @@ alumnos_n = sapply(alumnos[,c(3:25)],normalize)
 #alumnos_n
 ```
 
-<<<<<<< HEAD
 ##Correlation of the data
 ### Delete of non numeric attributes
 ```{r Correlation, echo=TRUE}
@@ -464,5 +463,3 @@ alumnosData = alumnosData[-1]
 ## description of the data
 cor(alumnosData)
 ```
-=======
->>>>>>> master

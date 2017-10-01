@@ -36,6 +36,8 @@ El primer paso sera renombrar las variables de una manera que se comprenda su ro
 El segundo paso es asegurarse que todos los datos en el dataset sean numericos, la ventaja es que muchos factores
 que deben ser cambiados se repiten, por lo tanto es facil cambiarlos con la herramienta "Replace" de Notepad++.
 En caso de informacion que no tiene sentido, fue reemplazada por N/A. Si habia algun rango (ej. 9-11), estos fueron promediados y redondeados. La columna de conocimiento sobre primeros auxilios se cambio de Si y No a 1 y 0 respectivamente
+
+
 ## Analisis de los Datos
 ### Descripcion De Variables:
 Las siguientes variables son las que aparecen en nuestro dataset.

@@ -261,7 +261,6 @@ boxplot(alumnos$destreza_mental)
 boxplot(alumnos$herramientas_adicionales)
 ```
 
-## La Talacha
 ###Normalizacion de los datos numericos
 ```{r}
 normalize = function(x){

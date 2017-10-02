@@ -98,7 +98,7 @@ expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
 ## Analisis de los Datos
 ### Descripcion De Variables (ContinuaciÃ³n)
 
-- destreza_fÃ?sica: Del 1 al 10, la destreza fisica que tiene el alumno segun el mismo.
+- destreza_fï¿½?sica: Del 1 al 10, la destreza fisica que tiene el alumno segun el mismo.
 
 - destreza_mental: Del 1 al 10, la destreza mental que el alumno tiene segun el mismo.
 
@@ -349,17 +349,17 @@ hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 
 ```
 
 
-## Cantidad De Viajes Al Año
+## Cantidad De Viajes Al Aï¿½o
 ```{r fig16, fig.height = 5, fig.width = 8}
 summary(alumnos$viajes_al_ano)
 skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
 ```
 
-## Cantidad De Viajes Al Año
+## Cantidad De Viajes Al Aï¿½o
 
 ```{r}
-hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
+hist(alumnos$viajes_al_ano, xlab ="viajes al aï¿½o",main = "viajes al aï¿½o")
 
 ```
 
@@ -436,19 +436,6 @@ hist(alumnos$herramientas_adicionales, xlab = 'Cuantas herramientas son usadas e
 ```
 
 
-## Procesado De Los Datos
-### Normalizacion de los datos numericos
-Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
-```{r, echo=TRUE}
-normalize = function(x){
-  return((x-min(x)) / (max(x)-min(x)))
-}
-#alumnos[,c(3:25)]
-alumnos[is.na(alumnos)] <- 1
-alumnos_n = sapply(alumnos[,c(3:25)],normalize)
-#alumnos_n
-```
-
 ##Correlation of the data
 ### Delete of non numeric attributes
 ```{r Correlation, echo=TRUE}
@@ -522,3 +509,55 @@ plot(alumnos$tiempo_computadora_por_dia , alumnos$horas_de_videojuegos_al_dia , 
 plot(alumnos$promedio_de_horas_clase , alumnos$libros_escolares_al_semestre, xlab = 'Promedio de horas clase ', ylab = 'Libros escolares al semestre')
 ```
 
+
+## Procesado De Los Datos
+### Normalizacion de los datos numericos
+Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
+```{r, echo=TRUE}
+#reinicio de datos
+alumnos <-read.csv("dataset-alumnos-v2.csv")
+#Asignacion al azar
+alumnos <- alumnos[sample(1:nrow(alumnos)),]
+alumnos
+
+normalize = function(x){
+  return((x-min(x)) / (max(x)-min(x)))
+}
+#alumnos[,c(3:25)]
+alumnos[is.na(alumnos)] <- 1
+alumnos_n = sapply(alumnos[,c(3:25)],normalize)
+#alumnos_n
+```
+
+##KNN
+```{r}
+
+#60% para entrenar
+alumnos_train <- alumnos_n[1:90,]
+#30% para probar 
+alumnos_test <- alumnos_n[91:148,]
+dim(alumnos_train)
+dim(alumnos_test)              
+
+alumnos_train_labels <- alumnos[1:90,2]
+alumnos_train_labels
+alumnos_test_labels <- alumnos[91:148,2]
+alumnos_test_labels
+
+library(class)
+
+#p <- knn(train,test,class,k)
+#base de datos de entrenamiento, prueba, class etiquetas de entrenamiento, k el vecino
+
+alumnos_test_pred <- knn(train = alumnos_train,
+                      test = alumnos_test,
+                      cl = alumnos_train_labels,
+                      k = 21)
+#regresa el resultado
+library("gmodels")
+CrossTable(x=alumnos_test_labels,
+           y=alumnos_test_pred,
+           prop.chisq = FALSE)
+
+
+table(alumnos_test_labels,alumnos_test_pred)

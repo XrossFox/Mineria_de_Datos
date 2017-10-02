@@ -1,6 +1,6 @@
 ---
 title: "Parcial 2"
-output: ioslides_presentation
+output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -573,16 +573,27 @@ alumnos_test_pred <- knn(train = alumnos_train,
 
 ## K-NN 3
 
-```{r}
+```{r, echo=FALSE}
 #regresa el resultado
-library("gmodels")
-CrossTable(x=alumnos_test_labels,
-           y=alumnos_test_pred,
-           prop.chisq = FALSE)
+#library("gmodels")
+#CrossTable(x=alumnos_test_labels,
+ #          y=alumnos_test_pred,
+  #         prop.chisq = FALSE)
 
 
 table(alumnos_test_labels,alumnos_test_pred)
 ```
+
+## K-NN 4
+Con un K de 1, predice el 56% de los alumnos de manera correcta.
+
+Con un K de 3, la prediccion encontro un 52% de los alumnos de manera correcta.
+
+Con un k de 5, la prediccion encontro un 43% de los alumnos.
+
+
+
+
 
 ##Conclusion
 We can conclude that for the correlation we may need way more data for more

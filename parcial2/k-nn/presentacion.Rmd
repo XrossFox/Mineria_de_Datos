@@ -521,7 +521,7 @@ plot(alumnos$promedio_de_horas_clase , alumnos$libros_escolares_al_semestre, xla
 
 ## Procesado De Los Datos
 ### Normalizacion de los datos numericos
-Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
+Se Normalizan los datos para ponerlos en una escala de 0 a 1 y que los datos numericos esten en la misma escala para que sea posible aplicar el algoritmo K-NN
 ```{r, echo=TRUE}
 #reinicio de datos
 alumnos <-read.csv("dataset-alumnos-v2.csv")
@@ -567,6 +567,7 @@ alumnos_test_pred <- knn(train = alumnos_train,
                       test = alumnos_test,
                       cl = alumnos_train_labels,
                       k = 1)
+
 ```
 
 ## K-NN 3

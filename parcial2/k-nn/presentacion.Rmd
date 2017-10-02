@@ -480,7 +480,7 @@ Curiosamente cuando hicimos lo mismo con el gusto por las matematicas y el grado
 plot(alumnos$gusto_por_las_matematicas, alumnos$utilidad_de_matematicas, xlab = 'Gusto por las matematicas', ylab = 'Utilidad de las matematicas')
 ```
 
-## Plots de carrera con los datos recopilados.
+## Scatterplots de carrera (Overview grafica por carreras)
 
 ```{r}
 plot(alumnos$carrera, alumnos$numero_de_idiomas, xlab = 'Carrera', ylab = 'Numero de idiomas')
@@ -504,5 +504,21 @@ plot(alumnos$carrera , alumnos$destreza_fisica, xlab = 'Carrera' , ylab = 'Destr
 
 ```{r}
 plot(alumnos$carrera, alumnos$libros_escolares_al_semestre, xlab= 'Carrera' , ylab = 'Libros escolares al semestre')
+```
+
+##Plots algo mas correlacionados.
+
+Los siguientes plots estan hechos segun el grado de correlacion , si bien , no es muy grande, son los valores mas altos (Tanto positivos como negativos que encontramos)
+
+```{r}
+plot(alumnos$gusto_por_las_matematicas , alumnos$nivel_de_sociable, xlab = 'Gusto por las matematicas' , ylab = 'Nivel de sociable')
+```
+
+```{r}
+plot(alumnos$tiempo_computadora_por_dia , alumnos$horas_de_videojuegos_al_dia , xlab = 'Tiempo en la computadora al dia' , ylab = 'Horas de videojuegos al dia')
+```
+
+```{r}
+plot(alumnos$promedio_de_horas_clase , alumnos$libros_escolares_al_semestre, xlab = 'Promedio de horas clase ', ylab = 'Libros escolares al semestre')
 ```
 

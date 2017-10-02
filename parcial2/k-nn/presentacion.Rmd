@@ -98,7 +98,7 @@ expresado en el porcentaje de hombres, sobre el porcentaje de mujeres.
 ## Analisis de los Datos
 ### Descripcion De Variables (ContinuaciÃ³n)
 
-- destreza_fï¿½?sica: Del 1 al 10, la destreza fisica que tiene el alumno segun el mismo.
+- destreza_fÃ?sica: Del 1 al 10, la destreza fisica que tiene el alumno segun el mismo.
 
 - destreza_mental: Del 1 al 10, la destreza mental que el alumno tiene segun el mismo.
 
@@ -349,17 +349,17 @@ hist(alumnos$solidaridad, xlab = 'siendo 1 el mas bajo y 10 el mas alto',main = 
 ```
 
 
-## Cantidad De Viajes Al Aï¿½o
+## Cantidad De Viajes Al Año
 ```{r fig16, fig.height = 5, fig.width = 8}
 summary(alumnos$viajes_al_ano)
 skewness(alumnos$viajes_al_ano)
 boxplot(alumnos$viajes_al_ano)
 ```
 
-## Cantidad De Viajes Al Aï¿½o
+## Cantidad De Viajes Al Año
 
 ```{r}
-hist(alumnos$viajes_al_ano, xlab ="viajes al aï¿½o",main = "viajes al aï¿½o")
+hist(alumnos$viajes_al_ano, xlab ="viajes al año",main = "viajes al año")
 
 ```
 
@@ -562,3 +562,4 @@ CrossTable(x=alumnos_test_labels,
 
 
 table(alumnos_test_labels,alumnos_test_pred)
+getwd()

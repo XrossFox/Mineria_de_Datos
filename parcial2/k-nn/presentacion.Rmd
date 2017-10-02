@@ -459,6 +459,7 @@ Intentamos mostrar una relacion entre el gusto por cocinar y el cuidado que tien
 plot(alumnos$cuidado_por_la_alimentacion, alumnos$gusto_por_cocinar , xlab = 'Cuidado por la alimentacion' , ylab = 'Gusto por cocinar')
 ```
 
+## Scaterplots 2
 Como podran ver no tienen relacion alguna.
 
 Curiosamente cuando hicimos lo mismo con el gusto por las matematicas y el grado de utilidad que consideran los alumnos sucede algo similar.
@@ -467,33 +468,39 @@ Curiosamente cuando hicimos lo mismo con el gusto por las matematicas y el grado
 plot(alumnos$gusto_por_las_matematicas, alumnos$utilidad_de_matematicas, xlab = 'Gusto por las matematicas', ylab = 'Utilidad de las matematicas')
 ```
 
-## Scatterplots de carrera (Overview grafica por carreras)
+## Scatterplots 3
+### Al parecer los datos son tan pocos, que en algunos lados, R nos graficos cajas en lugar de scatterplots.
 
 ```{r}
 plot(alumnos$carrera, alumnos$numero_de_idiomas, xlab = 'Carrera', ylab = 'Numero de idiomas')
 ```
 
+## Scatterplots 4
 ```{r}
 plot(alumnos$carrera, alumnos$nivel_de_sociable, xlab = 'Carrera', ylab ='Nivel de sociable')
 ```
 
+## Scaterplots 5
 ```{r}
 plot(alumnos$carrera, alumnos$tiempo_computadora_por_dia, xlab = 'Carrera', ylab = 'Horas en la computadora al dia')
 ```
 
+## Scaterplots 6
 ```{r}
 plot(alumnos$carrera, alumnos$tolerancia_por_la_sangre , xlab = 'Carrera' , ylab = 'Tolerancia a la sangre')
 ```
 
+## Scaterplots 7
 ```{r}
 plot(alumnos$carrera , alumnos$destreza_fisica, xlab = 'Carrera' , ylab = 'Destreza Fisica')
 ```
 
+## Scaterplots
 ```{r}
 plot(alumnos$carrera, alumnos$libros_escolares_al_semestre, xlab= 'Carrera' , ylab = 'Libros escolares al semestre')
 ```
 
-##Plots algo mas correlacionados.
+## Plots algo mas correlacionados.
 
 Los siguientes plots estan hechos segun el grado de correlacion , si bien , no es muy grande, son los valores mas altos (Tanto positivos como negativos que encontramos)
 
@@ -501,10 +508,12 @@ Los siguientes plots estan hechos segun el grado de correlacion , si bien , no e
 plot(alumnos$gusto_por_las_matematicas , alumnos$nivel_de_sociable, xlab = 'Gusto por las matematicas' , ylab = 'Nivel de sociable')
 ```
 
+## Plots algo mas correlacionados. 2
 ```{r}
 plot(alumnos$tiempo_computadora_por_dia , alumnos$horas_de_videojuegos_al_dia , xlab = 'Tiempo en la computadora al dia' , ylab = 'Horas de videojuegos al dia')
 ```
 
+## Plots algo mas correlacionados. 3
 ```{r}
 plot(alumnos$promedio_de_horas_clase , alumnos$libros_escolares_al_semestre, xlab = 'Promedio de horas clase ', ylab = 'Libros escolares al semestre')
 ```

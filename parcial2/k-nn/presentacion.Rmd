@@ -533,16 +533,16 @@ alumnos_n = sapply(alumnos[,c(3:25)],normalize)
 ##KNN
 ```{r}
 
-#60% para entrenar
-alumnos_train <- alumnos_n[1:90,]
+#70% para entrenar
+alumnos_train <- alumnos_n[1:104,]
 #30% para probar 
-alumnos_test <- alumnos_n[91:148,]
+alumnos_test <- alumnos_n[105:148,]
 dim(alumnos_train)
 dim(alumnos_test)              
 
-alumnos_train_labels <- alumnos[1:90,2]
+alumnos_train_labels <- alumnos[1:104,2]
 alumnos_train_labels
-alumnos_test_labels <- alumnos[91:148,2]
+alumnos_test_labels <- alumnos[105:148,2]
 alumnos_test_labels
 
 library(class)
@@ -562,4 +562,4 @@ CrossTable(x=alumnos_test_labels,
 
 
 table(alumnos_test_labels,alumnos_test_pred)
-getwd()
+```

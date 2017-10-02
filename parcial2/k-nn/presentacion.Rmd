@@ -518,7 +518,6 @@ Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los dat
 alumnos <-read.csv("dataset-alumnos-v2.csv")
 #Asignacion al azar
 alumnos <- alumnos[sample(1:nrow(alumnos)),]
-alumnos
 
 normalize = function(x){
   return((x-min(x)) / (max(x)-min(x)))
@@ -529,21 +528,27 @@ alumnos_n = sapply(alumnos[,c(3:25)],normalize)
 #alumnos_n
 ```
 
-##KNN
-```{r}
+## K-NN 
+```{r ,echo=TRUE}
 
 #60% para entrenar
 alumnos_train <- alumnos_n[1:90,]
 #30% para probar 
 alumnos_test <- alumnos_n[91:148,]
-dim(alumnos_train)
-dim(alumnos_test)              
+#dim(alumnos_train)
+#dim(alumnos_test)              
 
 alumnos_train_labels <- alumnos[1:90,2]
-alumnos_train_labels
+#alumnos_train_labels
 alumnos_test_labels <- alumnos[91:148,2]
-alumnos_test_labels
+#alumnos_test_labels
 
+
+```
+
+## K-NN 2
+
+```{r ,echo=TRUE}
 library(class)
 
 #p <- knn(train,test,class,k)
@@ -552,8 +557,13 @@ library(class)
 alumnos_test_pred <- knn(train = alumnos_train,
                       test = alumnos_test,
                       cl = alumnos_train_labels,
-                      k = 21)
-#regresa el resultado
+                      k = 1)
+```
+
+## K-NN 3
+
+```{r}
+regresa el resultado
 library("gmodels")
 CrossTable(x=alumnos_test_labels,
            y=alumnos_test_pred,

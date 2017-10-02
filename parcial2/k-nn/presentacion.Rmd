@@ -558,6 +558,7 @@ alumnos_test_pred <- knn(train = alumnos_train,
                       test = alumnos_test,
                       cl = alumnos_train_labels,
                       k = 1)
+
 ```
 
 ## K-NN 3

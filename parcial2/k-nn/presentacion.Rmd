@@ -436,19 +436,6 @@ hist(alumnos$herramientas_adicionales, xlab = 'Cuantas herramientas son usadas e
 ```
 
 
-## Procesado De Los Datos
-### Normalizacion de los datos numericos
-Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
-```{r, echo=TRUE}
-normalize = function(x){
-  return((x-min(x)) / (max(x)-min(x)))
-}
-#alumnos[,c(3:25)]
-alumnos[is.na(alumnos)] <- 1
-alumnos_n = sapply(alumnos[,c(3:25)],normalize)
-#alumnos_n
-```
-
 ##Correlation of the data
 ### Delete of non numeric attributes
 ```{r Correlation, echo=TRUE}
@@ -506,3 +493,55 @@ plot(alumnos$carrera , alumnos$destreza_fisica, xlab = 'Carrera' , ylab = 'Destr
 plot(alumnos$carrera, alumnos$libros_escolares_al_semestre, xlab= 'Carrera' , ylab = 'Libros escolares al semestre')
 ```
 
+
+## Procesado De Los Datos
+### Normalizacion de los datos numericos
+Se Normalizan los datos para ponerlos en una escala de 0 a 1 y sea traer los datos numericos a la misma escala y sea posible aplicar el algoritmo K-NN
+```{r, echo=TRUE}
+#reinicio de datos
+alumnos <-read.csv("dataset-alumnos-v2.csv")
+#Asignacion al azar
+alumnos <- alumnos[sample(1:nrow(alumnos)),]
+alumnos
+
+normalize = function(x){
+  return((x-min(x)) / (max(x)-min(x)))
+}
+#alumnos[,c(3:25)]
+alumnos[is.na(alumnos)] <- 1
+alumnos_n = sapply(alumnos[,c(3:25)],normalize)
+#alumnos_n
+```
+
+##KNN
+```{r}
+
+#60% para entrenar
+alumnos_train <- alumnos_n[1:90,]
+#30% para probar 
+alumnos_test <- alumnos_n[91:148,]
+dim(alumnos_train)
+dim(alumnos_test)              
+
+alumnos_train_labels <- alumnos[1:90,2]
+alumnos_train_labels
+alumnos_test_labels <- alumnos[91:148,2]
+alumnos_test_labels
+
+library(class)
+
+#p <- knn(train,test,class,k)
+#base de datos de entrenamiento, prueba, class etiquetas de entrenamiento, k el vecino
+
+alumnos_test_pred <- knn(train = alumnos_train,
+                      test = alumnos_test,
+                      cl = alumnos_train_labels,
+                      k = 21)
+#regresa el resultado
+library("gmodels")
+CrossTable(x=alumnos_test_labels,
+           y=alumnos_test_pred,
+           prop.chisq = FALSE)
+
+
+table(alumnos_test_labels,alumnos_test_pred)

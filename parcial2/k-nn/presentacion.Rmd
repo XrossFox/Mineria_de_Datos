@@ -563,7 +563,7 @@ alumnos_test_pred <- knn(train = alumnos_train,
 ## K-NN 3
 
 ```{r}
-regresa el resultado
+#regresa el resultado
 library("gmodels")
 CrossTable(x=alumnos_test_labels,
            y=alumnos_test_pred,
@@ -571,3 +571,15 @@ CrossTable(x=alumnos_test_labels,
 
 
 table(alumnos_test_labels,alumnos_test_pred)
+```
+
+##Conclusion
+We can conclude that for the correlation we may need way more data for more
+precise results, and this can be noted no the scatterplots.
+This results are really likely not representative of the actual population
+and it's defects may have to do with students not being that honest.
+
+##Pros
+With more precise results this could help us predict what carrer it is
+more likely to be picked by a student, or maybe find students that maybe 
+they may have not picked a carrer more suited for them.

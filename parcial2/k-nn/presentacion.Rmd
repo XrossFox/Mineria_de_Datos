@@ -589,6 +589,6 @@ This results are really likely not representative of the actual population
 and it's defects may have to do with students not being that honest.
 
 ##Pros
-With more precise results this could help us predict what carrer it is
+With more precise results this could help us predict what career it is
 more likely to be picked by a student, or maybe find students that maybe 
-they may have not picked a carrer more suited for them.
+they may have not picked a career more suited for them.

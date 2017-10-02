@@ -463,3 +463,46 @@ alumnosData = alumnosData[-1]
 ## description of the data
 cor(alumnosData)
 ```
+
+## Scaterplots
+
+Intentamos mostrar una relacion entre el gusto por cocinar y el cuidado que tienen las personas en su alimentacion y para ello utilizamos un scaterplot , sin embargo , no resulto como esperabamos.
+
+```{r}
+plot(alumnos$cuidado_por_la_alimentacion, alumnos$gusto_por_cocinar , xlab = 'Cuidado por la alimentacion' , ylab = 'Gusto por cocinar')
+```
+
+Como podran ver no tienen relacion alguna.
+
+Curiosamente cuando hicimos lo mismo con el gusto por las matematicas y el grado de utilidad que consideran los alumnos sucede algo similar.
+
+```{r}
+plot(alumnos$gusto_por_las_matematicas, alumnos$utilidad_de_matematicas, xlab = 'Gusto por las matematicas', ylab = 'Utilidad de las matematicas')
+```
+
+## Plots de carrera con los datos recopilados.
+
+```{r}
+plot(alumnos$carrera, alumnos$numero_de_idiomas, xlab = 'Carrera', ylab = 'Numero de idiomas')
+```
+
+```{r}
+plot(alumnos$carrera, alumnos$nivel_de_sociable, xlab = 'Carrera', ylab ='Nivel de sociable')
+```
+
+```{r}
+plot(alumnos$carrera, alumnos$tiempo_computadora_por_dia, xlab = 'Carrera', ylab = 'Horas en la computadora al dia')
+```
+
+```{r}
+plot(alumnos$carrera, alumnos$tolerancia_por_la_sangre , xlab = 'Carrera' , ylab = 'Tolerancia a la sangre')
+```
+
+```{r}
+plot(alumnos$carrera , alumnos$destreza_fisica, xlab = 'Carrera' , ylab = 'Destreza Fisica')
+```
+
+```{r}
+plot(alumnos$carrera, alumnos$libros_escolares_al_semestre, xlab= 'Carrera' , ylab = 'Libros escolares al semestre')
+```
+

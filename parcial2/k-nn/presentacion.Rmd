@@ -436,8 +436,8 @@ hist(alumnos$herramientas_adicionales, xlab = 'Cuantas herramientas son usadas e
 ```
 
 
-##Correlation of the data
-### Delete of non numeric attributes
+##Correlacion de los datos
+### Borrado de los datos no numericos
 ```{r Correlation, echo=TRUE}
 alumnosData = alumnos[-1]
 alumnosData = alumnosData[-1]
@@ -445,13 +445,11 @@ alumnosData = alumnosData[-1]
 ```
 
 
-```{r, echo=TRUE}
-## As of now the data is not being printed properly so i can't give a proper 
-## description of the data
+```{r, echo=F}
 cor(alumnosData)
 ```
 
-## Scaterplots
+## Scatterplots
 
 Intentamos mostrar una relacion entre el gusto por cocinar y el cuidado que tienen las personas en su alimentacion y para ello utilizamos un scaterplot , sin embargo , no resulto como esperabamos.
 
@@ -459,7 +457,7 @@ Intentamos mostrar una relacion entre el gusto por cocinar y el cuidado que tien
 plot(alumnos$cuidado_por_la_alimentacion, alumnos$gusto_por_cocinar , xlab = 'Cuidado por la alimentacion' , ylab = 'Gusto por cocinar')
 ```
 
-## Scaterplots 2
+## Scatterplots 2
 Como podran ver no tienen relacion alguna.
 
 Curiosamente cuando hicimos lo mismo con el gusto por las matematicas y el grado de utilidad que consideran los alumnos sucede algo similar.
@@ -480,22 +478,22 @@ plot(alumnos$carrera, alumnos$numero_de_idiomas, xlab = 'Carrera', ylab = 'Numer
 plot(alumnos$carrera, alumnos$nivel_de_sociable, xlab = 'Carrera', ylab ='Nivel de sociable')
 ```
 
-## Scaterplots 5
+## Scatterplots 5
 ```{r}
 plot(alumnos$carrera, alumnos$tiempo_computadora_por_dia, xlab = 'Carrera', ylab = 'Horas en la computadora al dia')
 ```
 
-## Scaterplots 6
+## Scatterplots 6
 ```{r}
 plot(alumnos$carrera, alumnos$tolerancia_por_la_sangre , xlab = 'Carrera' , ylab = 'Tolerancia a la sangre')
 ```
 
-## Scaterplots 7
+## Scatterplots 7
 ```{r}
 plot(alumnos$carrera , alumnos$destreza_fisica, xlab = 'Carrera' , ylab = 'Destreza Fisica')
 ```
 
-## Scaterplots
+## Scatterplots
 ```{r}
 plot(alumnos$carrera, alumnos$libros_escolares_al_semestre, xlab= 'Carrera' , ylab = 'Libros escolares al semestre')
 ```
@@ -596,12 +594,12 @@ Con un k de 5, la prediccion encontro un 43% de los alumnos.
 
 
 ##Conclusion
-We can conclude that for the correlation we may need way more data for more
-precise results, and this can be noted no the scatterplots.
-This results are really likely not representative of the actual population
-and it's defects may have to do with students not being that honest.
+Podemos concluir que para la correlacion podriamos necesitar mas informacion
+para resultados mas precisos, y esto es denotado por los scatterplots.
+Los resultados son muy probablemente no representativos de la poblacion actual
+y sus defectos podrian deberse a que los estudiantes no fueron muy honestos.
 
 ##Pros
-With more precise results this could help us predict what career it is
-more likely to be picked by a student, or maybe find students that maybe 
-they may have not picked a career more suited for them.
+Con resultados mas precisos esto podria ayudar a predecir que carrera es mas
+probable que sea seleccionada por un estudiante, o tal vez encontrar estudiantes
+que probablemente no agarraron una carrera mas acorde a sus intereses.

@@ -7,27 +7,32 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, echo=FALSE}
+irony_raw <- read.csv("irony-labeled.csv", stringsAsFactors = FALSE)
+library(gmodels)
 ```
 
-## Slide with Plot
 
-```{r pressure}
-plot(pressure)
+## Descripcion de los datos
+El dataset Irony Labeled contiene 1949 observaciones con dos variables. Estas son, el texto y su clasificacion como Ironico o No Ironico.
+
+Donde: 
+1 = Ironico
+-1 = NO Ironico
+
+```{r,echo=TRUE}
+irony_raw[1,1]
+irony_raw[1,2]
+```
+
+## Limitaciones y Desventajas del Dataset.
+Exceso de Caracteres especiales y posibles problemas de codificacion de caracteres.
+
+## Distribucion de los Datos e Histograma
+```{r}
+prop.table(table(irony_raw$label))
+n = data.frame ( table ( irony_raw$label ))
+n
+hist(irony_raw$label)
 ```
 

@@ -13,7 +13,7 @@ library(gmodels)
 ```
 
 
-## Descripcion de los datos
+# Descripcion de los datos
 El dataset Irony Labeled contiene 1949 observaciones con dos variables. Estas son, el texto y su clasificacion como Ironico o No Ironico.
 
 Donde: 
@@ -25,14 +25,154 @@ irony_raw[1,1]
 irony_raw[1,2]
 ```
 
-## Limitaciones y Desventajas del Dataset.
+# Limitaciones y Desventajas del Dataset.
 Exceso de Caracteres especiales y posibles problemas de codificacion de caracteres.
 
-## Distribucion de los Datos e Histograma
+# Distribucion de los Datos e Histograma
 ```{r}
 prop.table(table(irony_raw$label))
 n = data.frame ( table ( irony_raw$label ))
 n
 hist(irony_raw$label)
 ```
+
+# El Algoritmo
+
+Paso 1. Cargamos el algoritmo:
+```{r,echo=TRUE}
+irony_raw <- read.csv("irony-labeled.csv", stringsAsFactors = FALSE)
+
+head(irony_raw)
+```
+
+# Paso 2.
+## Transformar el tipo a factor para que jaaaale.
+La implementacion de Naive Bayes requiere que los valores sean facotres, de otra manera no funciona.
+```{r,echo=TRUE}
+irony_raw$label <- as.character(factor(irony_raw$label,c(1,-1),c("ironic","non-ironic")))
+irony_raw$label <- factor(irony_raw$label)
+
+```
+
+# Paso 3.
+## Estandarizacion de datos y corpus
+```{r, echo=TRUE}
+
+library("tm")
+irony_corpus <- VCorpus(VectorSource(irony_raw$comment_text))
+as.character(irony_corpus[1])
+
+lapply(irony_corpus[1:2],as.character)
+```
+
+
+# Paso 4
+## Convertimos texto a minusculas, se remueven stop words, numeros y puntuaciones
+```{r,echo=TRUE}
+irony_corpus_clean <- tm_map(irony_corpus , content_transformer(tolower))
+irony_corpus_clean <- tm_map(irony_corpus_clean , removeNumbers)
+irony_corpus_clean <- tm_map(irony_corpus_clean, removeWords, stopwords())
+irony_corpus_clean <- tm_map(irony_corpus_clean , removePunctuation)
+
+lapply(irony_corpus_clean[1:2],as.character)
+```
+
+
+# Paso 5
+## Sacar raices de las palabras del texto y quitar espacios
+```{r, echo=TRUE}
+irony_corpus_clean <- tm_map(irony_corpus_clean,stemDocument)
+irony_corpus_clean <- tm_map(irony_corpus_clean,stripWhitespace)
+head(irony_corpus_clean)
+```
+
+
+# Paso 6
+## Matriz de terminos.
+```{r, echo=TRUE}
+irony_dtm <- DocumentTermMatrix(irony_corpus_clean)
+irony_dtm
+```
+
+
+# Paso 7
+## Separacion de los datos de prueba en dos arreglos, 70/30%.
+```{r,echo=TRUE}
+irony_dtm_train <- irony_dtm[1:1364,]
+irony_dtm_test <- irony_dtm[1365 : 1949,]
+irony_train_labels <- irony_raw[1:1364,]$label
+irony_test_labels <- irony_raw[1365 : 1949,]$label
+```
+
+## Proporciones de ironic y non ironic, para saber si son aproximadamente proporcionales.
+```{r,echo=T}
+prop.table(table(irony_train_labels))
+
+prop.table(table(irony_test_labels))
+```
+
+
+# Paso 8
+## Nube de palabras.
+```{r,echo=TRUE}
+library(wordcloud)
+wordcloud(irony_corpus_clean,min.freq = 50, random.order = F)
+
+```
+
+# Paso 9
+## Nube de palabras de ironic y non-ironic.
+```{r, echo=T}
+ironic <- subset(irony_raw, label == "ironic")
+non.ironic <- subset(irony_raw, label == "non-ironic")
+wordcloud(ironic$comment_text , max.words = 40, scale = c(3,0.5))
+wordcloud(non.ironic$comment_text , max.words = 40, scale = c(3,0.5))
+```
+
+
+# Paso 10
+## Quitar las palabras que se repiten 5 o menos veces.
+```{r,echo=TRUE}
+irony_freq_words <- findFreqTerms(irony_dtm_train,5)
+
+irony_dtm_freq_train <- irony_dtm_train[,irony_freq_words]
+irony_dtm_freq_test <- irony_dtm_test[,irony_freq_words]
+```
+
+
+# Paso 11
+## Ejecutar Naive Bayes
+
+```{r,echo=T}
+#Para cambiar la aparicion de las palabras por Si o No
+convert_counts <- function(x){
+  x <- ifelse(x > 0, "Si","No")
+  
+}
+
+irony_train <- apply(irony_dtm_freq_train, MARGIN = 2, convert_counts)
+irony_test <- apply(irony_dtm_freq_test, MARGIN = 2, convert_counts)
+
+library(e1071)
+
+irony_classifier <- naiveBayes(irony_train, irony_train_labels)
+
+irony_test_pred <- predict(irony_classifier, irony_test)
+```
+
+
+
+# Resultados
+## Tablas
+```{r,echo=T}
+#Sin Laplace
+library(gmodels)
+CrossTable(irony_test_pred,irony_test_labels)
+
+#Con Laplace = 1
+irony_classifier2 <- naiveBayes(irony_train,irony_train_labels,laplace = 1)
+irony_test_pred2 <- predict(irony_classifier2, irony_test)
+CrossTable(irony_test_pred2,irony_test_labels)
+```
+
 

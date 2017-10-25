@@ -176,3 +176,13 @@ CrossTable(irony_test_pred2,irony_test_labels)
 ```
 
 
+#Concluciones
+Pues en los resultados se resalta que que el margen de error fue muy grande.
+Esto se debe a qué falta el factor humano para poder ser clasificados.
+Se deberia tomar el significado de la oracion y no de las palabras individuales, como es que lo hace Naive bayes
+
+#Limitaciones
+Pues sus limitaciones son como esta en las concluciones, debido a la falta del factor humano, hay circunstancias donde simplemente no es nada efectivo Naive bayes pero eso nos lleva a sus ventajas.
+
+#Ventajas
+En circunstancias donde el uso de palabras clave es mas notable, Naive bayes deja relucir sus cualidades de predicción.

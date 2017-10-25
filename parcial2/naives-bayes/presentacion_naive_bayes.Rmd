@@ -46,7 +46,7 @@ head(irony_raw)
 ```
 
 # Paso 2.
-## Transformar el tipo a factor para que jaaaale.
+## Transformar el tipo a factor para que funcione.
 La implementacion de Naive Bayes requiere que los valores sean facotres, de otra manera no funciona.
 ```{r,echo=TRUE}
 irony_raw$label <- as.character(factor(irony_raw$label,c(1,-1),c("ironic","non-ironic")))
@@ -186,3 +186,6 @@ Pues sus limitaciones son como esta en las concluciones, debido a la falta del f
 
 #Ventajas
 En circunstancias donde el uso de palabras clave es mas notable, Naive bayes deja relucir sus cualidades de predicción.
+
+#Desventajas
+Lamentablmente la ironia y el sarcasmo necesitan un poco más de contexto para poder ser encontrados y como mencionabamos en las limitaciones sin factor humano presente se vuelve mas dificil realizar estas acciones.

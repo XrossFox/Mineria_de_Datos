@@ -47,7 +47,7 @@ head(irony_raw)
 
 # Paso 2.
 ## Transformar el tipo a factor para que funcione.
-La implementacion de Naive Bayes requiere que los valores sean facotres, de otra manera no funciona.
+La implementacion de Naive Bayes requiere que los valores sean factores, de otra manera no funciona.
 ```{r,echo=TRUE}
 irony_raw$label <- as.character(factor(irony_raw$label,c(1,-1),c("ironic","non-ironic")))
 irony_raw$label <- factor(irony_raw$label)
@@ -113,7 +113,7 @@ prop.table(table(irony_test_labels))
 
 
 # Paso 8
-## Nube de palabras.
+## Nube de palabras general.
 ```{r,echo=TRUE}
 library(wordcloud)
 wordcloud(irony_corpus_clean,min.freq = 50, random.order = F)

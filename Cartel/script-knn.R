@@ -1,32 +1,45 @@
 #Leer Dataset de puchamones
-pokemon <- read.csv("pokemon.csv",stringsAsFactors = F)
+pokemon <- read.csv("pokemon.csv")
+
+#Procesando datos
+pokemon$capture_rate <- sapply(pokemon$capture_rate,as.integer)
+
+#Eliminar caracteres vacios
+pokemon$type2 <- sub("^$", "None", pokemon$type2)
+
+#Porcentaje de macho, y reemplazar na por -1
+pokemon$percentage_male <- sapply(pokemon$percentage_male,as.integer)
+pokemon$percentage_male[is.na(pokemon$percentage_male)] <- -1
+
+pokemon$is_legendary <- factor(pokemon$is_legendary,
+                               levels=c(0,1),
+                               labels=c("No","Si"))
+#reemplazar altura y peso NA
+pokemon$height_m[is.na(pokemon$height_m)] <- -1
+pokemon$weight_kg[is.na(pokemon$weight_kg)] <- -1
 
 #Quitamos las Columnas no numericas que no nos importan
 poke_raw <- pokemon[-1:-19]
 poke_raw <- poke_raw[-6]
 poke_raw <- poke_raw[-10:-11]
 poke_raw <- poke_raw[-15:-16]
-poke_raw <- poke_raw[-10]
-poke_raw <- poke_raw[-8]
-poke_raw <- poke_raw[-13]
-poke_raw <- poke_raw[-5]
-poke_raw <- poke_raw[-13]
+
 
 # Funciona que normaliza
 normalize <- function(x) {
   return ((x - min(x)) / (max(x) - min(x)))
 }
 # Convertir ints a numeric
-poke_raw <-as.data.frame(lapply(poke_raw,as.numeric))
+poke_raw[-17] <-as.data.frame(lapply(poke_raw[-17],as.numeric))
 
 # Normalizar
-poke_norm <- as.data.frame(lapply(poke_raw,normalize))
+poke_norm <- as.data.frame(lapply(poke_raw[-17],normalize))
 str(poke_norm$attack)
 
 
 #Ordenarlos al azar
 set.seed(32165)
-poke_randomizer <- sample(800,640)
+poke_randomizer <- sample(801,640)
 
 poke_train <- poke_norm[poke_randomizer,]
 poke_test <- poke_norm[-poke_randomizer,]

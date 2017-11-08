@@ -19,7 +19,7 @@ pokemon$height_m[is.na(pokemon$height_m)] <- -1
 pokemon$weight_kg[is.na(pokemon$weight_kg)] <- -1
 
 #Ordenarlos al azar
-set.seed(32165)
+set.seed(32166)
 poke_randomizer <- sample(801,640)
 
 poke_train <- pokemon[poke_randomizer,]

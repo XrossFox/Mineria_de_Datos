@@ -26,7 +26,7 @@ irony_raw[1,2]
 ```
 
 # Limitaciones y Desventajas del Dataset.
-Exceso de Caracteres especiales y posibles problemas de codificacion de caracteres.
+Exceso de caracteres especiales y posibles problemas de codificacion de caracteres.
 
 # Distribucion de los Datos e Histograma
 ```{r}
@@ -79,7 +79,7 @@ lapply(irony_corpus_clean[1:2],as.character)
 
 
 # Paso 5
-## Sacar raices de las palabras del texto y quitar espacios
+## Obtener las  raices de las palabras del texto y quitar  los espacios.
 ```{r, echo=TRUE}
 irony_corpus_clean <- tm_map(irony_corpus_clean,stemDocument)
 irony_corpus_clean <- tm_map(irony_corpus_clean,stripWhitespace)
@@ -88,7 +88,7 @@ head(irony_corpus_clean)
 
 
 # Paso 6
-## Matriz de terminos.
+## Crear la Matriz de terminos.
 ```{r, echo=TRUE}
 irony_dtm <- DocumentTermMatrix(irony_corpus_clean)
 irony_dtm
@@ -96,7 +96,7 @@ irony_dtm
 
 
 # Paso 7
-## Separacion de los datos de prueba en dos arreglos, 70/30%.
+## Separacion de los datos de prueba en dos arreglos, de entrenamiento y prueba 70/30%.
 ```{r,echo=TRUE}
 irony_dtm_train <- irony_dtm[1:1364,]
 irony_dtm_test <- irony_dtm[1365 : 1949,]
@@ -104,7 +104,7 @@ irony_train_labels <- irony_raw[1:1364,]$label
 irony_test_labels <- irony_raw[1365 : 1949,]$label
 ```
 
-## Proporciones de ironic y non ironic, para saber si son aproximadamente proporcionales.
+## Verificar que las proporciones de ironic y non ironic sean proporcionales.
 ```{r,echo=T}
 prop.table(table(irony_train_labels))
 
@@ -161,7 +161,6 @@ irony_test_pred <- predict(irony_classifier, irony_test)
 ```
 
 
-
 # Resultados
 ## Tablas
 ```{r,echo=T}
@@ -177,12 +176,12 @@ CrossTable(irony_test_pred2,irony_test_labels)
 
 
 #Concluciones
-Pues en los resultados se resalta que que el margen de error fue muy grande.
+En base los resultados se resalta que el margen de error fue muy grande.
 Esto se debe a qué falta el factor humano para poder ser clasificados.
-Se deberia tomar el significado de la oracion y no de las palabras individuales, como es que lo hace Naive bayes
+Se deberia tomar el significado de la oracion y no de las palabras individuales, Cosa que Naive Bayes no fue diseñado para hacer.
 
 #Limitaciones
-Pues sus limitaciones son como esta en las concluciones, debido a la falta del factor humano, hay circunstancias donde simplemente no es nada efectivo Naive bayes pero eso nos lleva a sus ventajas.
+Sus limitaciones, como es mencionado en las concluciones, debido a la falta del factor humano, hay circunstancias donde simplemente no es nada efectivo Naive bayes.
 
 #Ventajas
 En circunstancias donde el uso de palabras clave es mas notable, Naive bayes deja relucir sus cualidades de predicción.

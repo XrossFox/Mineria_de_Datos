@@ -19,7 +19,7 @@ pokemon$height_m[is.na(pokemon$height_m)] <- -1
 pokemon$weight_kg[is.na(pokemon$weight_kg)] <- -1
 
 #Ordenarlos al azar
-set.seed(32166)
+set.seed(46165)
 poke_randomizer <- sample(801,640)
 
 poke_train <- pokemon[poke_randomizer,]
@@ -38,3 +38,4 @@ poke_pred <- predict(poke_model, poke_test)
 
 summary(poke_pred)
 table(poke_pred,poke_test$is_legendary)
+

@@ -56,7 +56,7 @@ library(class)
 pokemon_test_pred <- knn(train = poke_train,
                          test = poke_test,
                          cl = poke_train_labels,
-                         k = 1)
+                         k = 5)
 
 # Tabla
 table(poke_test_labels,pokemon_test_pred)

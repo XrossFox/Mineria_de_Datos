@@ -59,4 +59,5 @@ pokemon_test_pred <- knn(train = poke_train,
                          k = 5)
 
 # Tabla
+library(gmodels)
 table(poke_test_labels,pokemon_test_pred)

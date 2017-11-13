@@ -37,5 +37,6 @@ summary(poke_model)
 poke_pred <- predict(poke_model, poke_test)
 
 summary(poke_pred)
-table(poke_pred,poke_test$is_legendary)
+library(gmodels)
+CrossTable(poke_pred,poke_test$is_legendary)
 
